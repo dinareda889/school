@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'ge';
+    src: url('GEFlowRegular.eot');
+    src: url('GEFlowRegular.eot') format('embedded-opentype'),
+         url('GEFlowRegular.html') format('woff2'),
+         url('GEFlowRegular.woff') format('woff'),
+         url('GEFlowRegular.ttf') format('truetype'),
+         url('GEFlowRegular.svg#GEFlowRegular') format('svg');
+         font-weight:400;
+         font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'ge';
+    src: url('GEFlowBold.eot');
+    src: url('GEFlowBold.eot') format('embedded-opentype'),
+         url('GEFlowBold.html') format('woff2'),
+         url('GEFlowBold.woff') format('woff'),
+         url('GEFlowBold.ttf') format('truetype'),
+         url('GEFlowBold.svg#GEFlowBold') format('svg');
+         font-weight:700;
+         font-style: normal;
+}
+
+

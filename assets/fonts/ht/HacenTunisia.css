@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'ht';
+    src: url('HacenTunisia.eot');
+    src: url('HacenTunisia.eot') format('embedded-opentype'),
+         url('HacenTunisia.html') format('woff2'),
+         url('HacenTunisia.woff') format('woff'),
+         url('HacenTunisia.ttf') format('truetype'),
+         url('HacenTunisia.svg#HacenTunisia') format('svg');
+}
