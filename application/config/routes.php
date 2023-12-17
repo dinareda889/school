@@ -50,8 +50,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-/*$route['default_controller'] = 'Web';*/
-$route['default_controller'] = 'Dashboard';
+$route['default_controller'] = 'Web';
+//$route['default_controller'] = 'Dashboard';
 /*$route['404_override'] = 'Web';*/
 
 $route['Success'] = 'Api/Success';
@@ -62,9 +62,9 @@ $route['blogs'] = "Web/blogs";
 $route['blogs/(:num)'] = "Web/blogs/$1";
 $route['one_blog/(:any)'] = "Web/one_blog/$1";
 
-$route['projects'] = "Web/projects";
-$route['projects/(:num)'] = "Web/projects/$1";
-$route['one_project/(:any)'] = "Web/one_project/$1";
+$route['events'] = "Web/projects";
+$route['events/(:num)'] = "Web/projects/$1";
+$route['one_event/(:any)'] = "Web/one_project/$1";
 
 $route['careers'] = "Web/careers";
 $route['careers/(:num)'] = "Web/careers/$1";

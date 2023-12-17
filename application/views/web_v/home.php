@@ -1,514 +1,559 @@
-<div class="clearfix"></div>
-<!-- ============================================================== -->
-<!-- Top header  -->
-<!-- ============================================================== -->
-<!-- ============================ Hero Banner  Start================================== -->
-<div class="hero-banner vedio-banner">
-    <div class="overlay"></div>
-    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-        <?php if(isset($video) && !empty($video)){ ?>
-            <source src="<?= base_url() . 'uploads/videos/'.$video['video_link'] ?>" type="video/mp4">
+<!--====== SLIDER ======-->
+<section id="slider-part" class="slider-active">
+    <div class="single-slider bg_cover pt-150"
+         style="background-image: url(<?= base_url() . 'assets_web/images/' ?>baner/img1.jpg)" data-overlay="4">
+        <div class="container">
+            <div class="row direction justify">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="slider-cont">
+                        <h1 data-animation="bounceInLeft" data-delay="1s">مدرستنا دليلك للنجاح</h1>
+                        <p data-animation="fadeInUp" data-delay="1.3s">نسعى لتدريس مناهج متميزة على ايدى معلمين متميزين
+                            فى كافة المواد العلمية</p>
 
-        <?php }else{ ?>
-        <source src="<?= base_url() . 'assets_web/img' ?>/vedio/vedio.mp4" type="video/mp4">
-
-        <?php } ?>
-    </video>
-    <div class="container">
-        <!-- <div class="logo-banner-div">
-            <img src="<?= base_url() . 'assets_web/img' ?>/logo.png" alt="logo-image" class="banner-img-logo">
-        </div> -->
-        <div class="full-search-2 eclip-search italian-search hero-search-radius shadow">
-            <div class="hero-search-content">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-12 b-r">
-                        <div class="form-group">
-                            <div class="input-with-icon">
-                                <select id="Types" class="form-control">
-                                    <option value="">&nbsp;</option>
-                                    <option value="1"><?=translate_web('All')?></option>
-                                    <option value="2"><?=translate_web('Apartments')?></option>
-                                    <option value="3"><?=translate_web('Villas')?></option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-12">
-                        <div class="form-group">
-                            <div class="input-with-icon">
-                                <select id="ptypes" class="form-control">
-                                    <option value="">&nbsp;</option>
-                                    <option value="1">0.5</option>
-                                    <option value="2">1</option>
-                                    <option value="3">1.5</option>
-                                    <option value="4">2</option>
-                                    <option value="5">2.5</option>
-                                    <option value="6">3</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-3 col-md-3 col-sm-12">
-                        <div class="form-group">
-                            <div class="input-with-icon b-l">
-                                <select id="location" class="form-control">
-                                    <option value="">&nbsp;</option>
-                                    <option value="1">AED 750K - AED 1M</option>
-                                    <option value="2">AED 1M - AED 2M</option>
-                                    <option value="3">AED 2M - AED 3M</option>
-                                    <option value="4">AED 3M - AED 4M</option>
-                                    <option value="5">AED 4M - AED 5M</option>
-                                    <option value="6">AED 5M - AED 6M</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-12">
-                        <div class="form-group">
-                            <a href="#" class="btn search-btn" data-bs-toggle="modal" data-bs-target="#register"><?=translate_web('Search')?></a>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- ============================ Hero Banner End ================================== -->
-<!-- ============================ About us Start ========================================= -->
-<div class="about-us-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 align-self-center">
-                <div class="about-us-img-wrap about-img-left">
-                    <img src="<?php if (!empty($this->company_data->about_image) && (file_exists('uploads/main/' . $this->company_data->about_image))) {
-                        echo base_url() . "uploads/main/" .$this->company_data->about_image;
-                    } else {
-                        echo base_url() . 'uploads/defult_image.jpg';
 
+    <div class="single-slider bg_cover pt-150"
+         style="background-image: url(<?= base_url() . 'assets_web/images/' ?>baner/img2.jpg)" data-overlay="4">
+        <div class="container">
+            <div class="row direction justify">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="slider-cont">
+                        <h1 data-animation="bounceInLeft" data-delay="1s">مدرستنا تجعلك من الاوائل</h1>
+                        <p data-animation="fadeInUp" data-delay="1.3s">نسعى لتدريس مناهج متميزة على ايدى معلمين متميزين
+                            فى كافة المواد العلمية</p>
 
-                    } ?>" alt="About Us Image">
-                    <div class="about-us-img-info  about-us-img-info-3">
-                        <div class="ltn__video-img ltn__animation-pulse1">
-                            <img src="<?php if (!empty($this->company_data->about_image) && (file_exists('uploads/main/' . $this->company_data->about_image))) {
-                                echo base_url() . "uploads/main/" .$this->company_data->about_image;
-                            } else {
-                                echo base_url() . 'uploads/defult_image.jpg';
-                            } ?>" alt="images">
-                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 align-self-center">
-                <div class="about-us-info-wrap">
-                    <div class="section-title-area ltn__section-title-2--- mb-20">
-                        <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color"><?=translate_web('About_us')?></h6>
-                        <h1 class="section-title"><?=translate_web('Welcome_To_Madain_Setting_The_Benchmark_For_Tomorrows_Living')?></h1>
-                        <p><?php if ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'english')) {
-                          echo $about_us[0]->about_us_en;
-                        }elseif($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'russian')){
-                                echo $about_us[0]->about_us_ru;
-                            }else{
-                                echo $about_us[0]->about_us;
-                            }
-                        ?>
-                        </p>
+        </div>
+    </div>
+
+    <div class="single-slider bg_cover pt-150"
+         style="background-image: url(<?= base_url() . 'assets_web/images/' ?>baner/img3.jpg)" data-overlay="4">
+        <div class="container">
+            <div class="row direction justify">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="slider-cont">
+                        <h1 data-animation="bounceInLeft" data-delay="1s">مدرستنا دليلك للنجاح</h1>
+                        <p data-animation="fadeInUp" data-delay="1.3s">نسعى لتدريس مناهج متميزة على ايدى معلمين متميزين
+                            فى كافة المواد العلمية</p>
+
                     </div>
-                    <ul class="about-us-list clearfix">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!--====== مميزات المدرسة ======-->
+<section class="video-feature bg_cover pt-60 pb-110 direction"
+         style="background-image: url(<?= base_url() . 'assets_web/images/' ?>features.jpg)" data-aos="fade-down"
+         data-aos-easing="linear" data-aos-duration="900">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-last order-lg-first">
+                <div class="text-center pt-50">
+                    <a class="Video-popup" href="https://www.youtube.com/watch?v=KcUfkrprw4k"><i
+                                class="fa fa-play video-i"></i></a>
+                </div> <!-- row -->
+            </div>
+            <div class="col-lg-5 offset-lg-1 order-first order-lg-last">
+                <div class="feature pt-50">
+                    <div class="feature-title">
+                        <h3>مميزات المدرسة</h3>
+                    </div>
+                    <ul>
                         <li>
-                            <i class="flaticon-home-2"></i>
-                            <?=translate_web('Smart_Home_Design')?>
+                            <div class="singel-feature">
+                                <div class="icon">
+                                    <img src="<?= base_url() . 'assets_web/images/' ?>all-icon/f-1.png" alt="icon">
+                                </div>
+                                <div class="cont">
+                                    <h4>اختبارات دورية</h4>
+                                    <p>تمتاز المدرسة بعمل اختبارات بصفة دورية للطلبة لمعرفة مستواهم والعمل على زيادة
+                                        تفوقهم </p>
+                                </div>
+                            </div> <!-- singel feature -->
                         </li>
                         <li>
-                            <i class="flaticon-mountain"></i>
-                            <?=translate_web('Beautiful_Scene_Around')?>
+                            <div class="singel-feature">
+                                <div class="icon">
+                                    <img src="<?= base_url() . 'assets_web/images/' ?>all-icon/f-3.png" alt="icon">
+                                </div>
+                                <div class="cont">
+                                    <h4>متابعة مستمرة</h4>
+                                    <p>تمتاز المدرسة بمتابعتها باستمار للطلبة وارسال التقارير لأولياء الأمور</p>
+                                </div>
+                            </div> <!-- singel feature -->
                         </li>
                         <li>
-                            <i class="flaticon-heart"></i>
-                            <?=translate_web('Exceptional_Lifestyle')?>
-                        </li>
-                        <li>
-                            <i class="flaticon-secure"></i>
-                            <?=translate_web('Complete_24/7_Security')?>
+                            <div class="singel-feature">
+                                <div class="icon">
+
+                                    <img src="<?= base_url() . 'assets_web/images/' ?>all-icon/f-2.png" alt="icon">
+                                </div>
+                                <div class="cont">
+                                    <h4>معلمين متميزين</h4>
+                                    <p>تضم المدرسة مجموعة متميزة من المعلمين فى مختلف التخصصات والمراحل التعليمية</p>
+                                </div>
+                            </div> <!-- singel feature -->
                         </li>
                     </ul>
-                    <div class="about-callout bg-overlay-theme-05  mt-30">
-                        <p><?=translate_web('Discover_our_meticulously_designed_apartments_and_unlock_a_world_designed_apartments_and_unlock_a_world')?></p>
+                </div> <!-- feature -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+    <div class="feature-bg"></div>
+</section>
+
+
+<!--====== نبذة عنا ======-->
+<section class="about-area pt-60 pb-60 direction aboutt">
+    <div class="container c-relative">
+        <div class="row">
+            <div class="col-lg-5" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900">
+                <div class="about-content mt-40">
+                    <div class="section-title pt-45">
+                        <h5><?= translate_web('About_us') ?></h5>
+                        <h2><?= translate_web('About_us_title') ?> </h2>
+                    </div>
+                    <p><?php if ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'english')) {
+                            echo $about_us[0]->about_us_short_en;
+                        } elseif ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'russian')) {
+                            echo $about_us[0]->about_us_short_ru;
+                        } else {
+                            echo $about_us[0]->about_us_short;
+                        }
+                        ?> </p>
+                    <a href="<?= base_url() ?>about_us" class="main-btn"><?= translate_web('load_more') ?></a>
+                </div>
+            </div>
+            <div class="col-lg-7" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900">
+                <div class="about-image mt-50">
+                    <div class="single-image image-1">
+                        <img src="<?= base_url() . 'assets_web/images/' ?>about/about-1.png" alt="">
+                    </div>
+                    <div class="single-image image-2">
+                        <img src="<?= base_url() . 'assets_web/images/' ?>about/about-21.jpg" alt="">
+                    </div>
+                    <div class="single-image image-3">
+                        <img src="<?= base_url() . 'assets_web/images/' ?>about/about-3.jpg" alt="">
+                    </div>
+                    <div class="single-image image-4">
+                        <img src="<?= base_url() . 'assets_web/images/' ?>about/about-4.jpg" alt="">
+                    </div>
+
+                    <div class="about-icon icon-1">
+                        <img src="<?= base_url() . 'assets_web/images/' ?>about/icon-1.png" alt="">
+                    </div>
+                    <div class="about-icon icon-2">
+                        <img src="<?= base_url() . 'assets_web/images/' ?>about/icon-2.png" alt="">
+                    </div>
+                    <div class="about-icon icon-3">
+                        <img src="<?= base_url() . 'assets_web/images/' ?>about/icon-3.png" alt="">
+                    </div>
+                    <div class="about-icon icon-4">
+                        <img src="<?= base_url() . 'assets_web/images/' ?>about/icon-4.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- ==================================== About us End =================================== -->
-<!-- ============================ Projects Start ================================== -->
-<section class="bg-light projects">
+</section>
+
+
+<!--====== الاحصائيات ======-->
+<div class="bg_cover pt-110 pb-110 direction" data-overlay="8"
+     style="background-image: url(<?= base_url() . 'assets_web/images/' ?>baner/img3.jpg)" data-aos="fade-up"
+     data-aos-easing="linear" data-aos-duration="900">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-7 col-md-10 text-center">
-                <div class="sec-heading center">
-                    <h2><?=translate_web('Our_Projects')?></h2>
-                    <p><?=translate_web('Discover_our_meticulously_designed_apartments_and_unlock_a_world_of_elegance_and_comfort_that_will_surpass_your_expectations')?>.</p>
-                </div>
-            </div>
-        </div>
+
         <div class="row">
-            <?php if(isset($projects) && !empty($projects)){
-                foreach ($projects as $row){ ?>
-                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        <div class="location-property-wrap">
-                            <div class="location-property-thumb">
-                                <a href="<?=base_url()?>one_project/<?=base64_encode($row->id)?>">
-                                    <img src="<?php if (!empty($row->image) && (file_exists('uploads/project/' . $row->image))) {
-                                        echo base_url() . "uploads/project/thumbs/" .$row->image;
-                                    } else {
-                                        echo base_url() . 'uploads/defult_image.jpg';
-                                    } ?>" class="img-fluid" alt="images" /></a>
+            <div class="col-lg-3 col-sm-6">
+                <div class="singel-counter text-center mt-40">
+                    <span><span class="counter">1000</span> </span>
+                    <p>عدد الطلبة</p>
+                </div> <!-- singel counter -->
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="singel-counter text-center mt-40">
+                    <span><span class="counter">100</span> </span>
+                    <p>عدد الفصول</p>
+                </div> <!-- singel counter -->
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="singel-counter text-center mt-40">
+                    <span><span class="counter">200</span> </span>
+                    <p>عدد المعلمين</p>
+                </div> <!-- singel counter -->
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="singel-counter text-center mt-40">
+                    <span><span class="counter">40</span></span>
+                    <p>عدد سنوات الخبرة</p>
+                </div> <!-- singel counter -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div>
+
+
+<!--====== المواد العلمية ======-->
+<!--<section   class="subject pt-60 pb-60"  data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="section-title pb-45">
+                     <h2>المواد العلمية</h2>
+                     <span class="line"></span>
+                </div>  
+            </div>
+        </div> 
+        
+          <div class="category-slied" dir="rtl">
+                 <div class="singel-course">
+                    <div class="thum">
+                        <div class="image img-study" style="background-image: url(<?= base_url() . 'assets_web/images/' ?>subject/img1.jpg)" alt="img">
+                         </div>
+                     </div>
+                    <div class="cont">
+                          <div class="row">
+                              <div class=" mb-2 col-md-12">
+                                   <a href="subject-details.html"><h4>اسم المادة العلمية</h4></a>
+                            </div> 
+                             <div class=" mb-2 col-md-12">
+                                  <span class="spanclr"><i class="fa fa-graduation-cap mll-5"></i>   المرحلة التعليمية :- </span> <span class="spanclr1"> الصف الاول الابتدائى</span> 
+                             </div>
+                             
+                        <div class=" mb-2 col-md-6">
+                                 <span class="spanclr"><i class="fa fa-book mll-5"></i> عدد الوحدات :- </span><span class="spanclr1">3</span> 
+                             </div>
+                            
+                        <div class=" mb-2 col-md-6">
+                                <span class="spanclr"><i class="fa fa-file mll-5"></i> عدد الدروس :- </span><span class="spanclr1">9</span> 
+                             </div>
+                              </div>
+                     </div>
+                </div>  
+            
+                  <div class="singel-course">
+                    <div class="thum">
+                        <div class="image img-study" style="background-image: url(<?= base_url() . 'assets_web/images/' ?>subject/img2.jpg)" alt="img">
+                           
+                        </div>
+                     </div>
+                    <div class="cont">
+                          <div class="row">
+                               <div class=" mb-2 col-md-12">
+                                   <a href="subject-details.html"><h4>اسم المادة العلمية</h4></a>
+                            </div> 
+                             <div class=" mb-2 col-md-12">
+                                  <span class="spanclr"><i class="fa fa-graduation-cap mll-5"></i>   المرحلة التعليمية :- </span> <span class="spanclr1"> الصف الاول الابتدائى</span> 
+                             </div>
+                             
+                        <div class=" mb-2 col-md-6">
+                                 <span class="spanclr"><i class="fa fa-book mll-5"></i> عدد الوحدات :- </span><span class="spanclr1">3</span> 
+                             </div>
+                            
+                        <div class=" mb-2 col-md-6">
+                                <span class="spanclr"><i class="fa fa-file mll-5"></i> عدد الدروس :- </span><span class="spanclr1">9</span> 
+                             </div>
+                              </div>
+                     </div>
+                </div> 
+                  
+                  <div class="singel-course">
+                    <div class="thum">
+                        <div class="image img-study" style="background-image: url(<?= base_url() . 'assets_web/images/' ?>subject/img3.jpg)" alt="img">
+                           
+                        </div>
+                     </div>
+                    <div class="cont">
+                          <div class="row">
+                               <div class=" mb-2 col-md-12">
+                                   <a href="subject-details.html"><h4>اسم المادة العلمية</h4></a>
+                            </div> 
+                             <div class=" mb-2 col-md-12">
+                                  <span class="spanclr"><i class="fa fa-graduation-cap mll-5"></i>   المرحلة التعليمية :- </span> <span class="spanclr1"> الصف الاول الابتدائى</span> 
+                             </div>
+                             
+                        <div class=" mb-2 col-md-6">
+                                 <span class="spanclr"><i class="fa fa-book mll-5"></i> عدد الوحدات :- </span><span class="spanclr1">3</span> 
+                             </div>
+                            
+                        <div class=" mb-2 col-md-6">
+                                <span class="spanclr"><i class="fa fa-file mll-5"></i> عدد الدروس :- </span><span class="spanclr1">9</span> 
+                             </div>
+                              </div>
+                     </div>
+                </div> 
+                  
+                  <div class="singel-course">
+                    <div class="thum">
+                        <div class="image img-study" style="background-image: url(<?= base_url() . 'assets_web/images/' ?>subject/img4.jpg)" alt="img">
+                           
+                        </div>
+                     </div>
+                    <div class="cont">
+                          <div class="row">
+                               <div class=" mb-2 col-md-12">
+                                   <a href="subject-details.html"><h4>اسم المادة العلمية</h4></a>
+                            </div> 
+                             <div class=" mb-2 col-md-12">
+                                  <span class="spanclr"><i class="fa fa-graduation-cap mll-5"></i>   المرحلة التعليمية :- </span> <span class="spanclr1"> الصف الاول الابتدائى</span> 
+                             </div>
+                             
+                        <div class=" mb-2 col-md-6">
+                                 <span class="spanclr"><i class="fa fa-book mll-5"></i> عدد الوحدات :- </span><span class="spanclr1">3</span> 
+                             </div>
+                            
+                        <div class=" mb-2 col-md-6">
+                                <span class="spanclr"><i class="fa fa-file mll-5"></i> عدد الدروس :- </span><span class="spanclr1">9</span> 
+                             </div>
+                              </div>
+                     </div>
+                </div> 
+                  
+                    </div>  
+                 
+     </div>  
+</section>-->
+
+<?php if (isset($projects) && !empty($projects)) {
+    ?>
+    <!--====== الأيفنتات ======-->
+    <section class="pt-70 pb-70 bck direction" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900">
+        <div class="container c-relative">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title pb-45">
+                        <h2><?= translate_web('Our_events') ?> </h2>
+                        <span class="line"></span>
+                    </div>
+                </div>
+            </div> <!-- row -->
+            <div class="row">
+                <?php
+                foreach ($projects as $row) { ?>
+                    <div class="col-lg-6">
+                        <div class="singel-event-list mt-30">
+                            <div class="event-thum">
+                                <img src="<?php if (!empty($row->image) && (file_exists('uploads/project/' . $row->image))) {
+                                    echo base_url() . "uploads/project/thumbs/" . $row->image;
+                                } else {
+                                    echo base_url() . 'uploads/defult_image.jpg';
+                                } ?>" alt="Event">
                             </div>
-                            <div class="location-property-content">
-                                <div class="lp-content-flex">
-                                    <h4 class="lp-content-title"><?php if ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'english')) {
+                            <div class="event-cont">
+                                <span><i class="fa fa-calendar"></i> 6-11-2023</span>
+                                <a href="<?= base_url() ?>one_event/<?= base64_encode($row->id) ?>">
+                                    <h4><?php if ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'english')) {
                                             echo $row->name_en;
-                                        }elseif($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'russian')){
+                                        } elseif ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'russian')) {
                                             echo $row->name_ru;
-                                        }else{
+                                        } else {
                                             echo $row->name_ar;
                                         }
-                                        ?></h4>
-                                   <!-- <span>Project | Category</span>-->
-                                </div>
-                                <div class="lp-content-right">
-                                    <a href="<?=base_url()?>one_project/<?=base64_encode($row->id)?>" class="lp-property-view">
-                                        <i class="fas fa-arrow-right"></i></a>
-                                </div>
+                                        ?></h4></a>
+                                <span><i class="fa fa-clock-o"></i> <?= $row->from_time ?> - <?= $row->to_time ?></span>
+                                <span><i class="fa fa-map-marker"></i> <?= $row->location ?></span>
+                                <p class="fnt"><?php if ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'english')) {
+                                        echo $row->description_en;
+                                    } elseif ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'russian')) {
+                                        echo $row->description_ru;
+                                    } else {
+                                        echo $row->description_ar;
+                                    }
+                                    ?> </p>
                             </div>
                         </div>
                     </div>
-                <?php }
-            } ?>
-           <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="location-property-wrap">
-                    <div class="location-property-thumb">
-                        <a href="project-details.html"><img src="<?/*= base_url() . 'assets_web/img' */?>/c-2.jpg" class="img-fluid" alt="images" /></a>
-                    </div>
-                    <div class="location-property-content">
-                        <div class="lp-content-flex">
-                            <h4 class="lp-content-title">Madain Square</h4>
-                            <span>Project | Category</span>
-                        </div>
-                        <div class="lp-content-right">
-                            <a href="project-details.html" class="lp-property-view"><i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
+                <?php } ?>
+                <div class="col-lg-12 text-center mt-60">
+                    <a href="<?= base_url() ?>events" class="main-btn"><?= translate_web('load_more') ?></a>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="location-property-wrap">
-                    <div class="location-property-thumb">
-                        <a href="project-details.html"><img src="<?/*= base_url() . 'assets_web/img' */?>/c-6.jpeg" class="img-fluid" alt="images" /></a>
-                    </div>
-                    <div class="location-property-content">
-                        <div class="lp-content-flex">
-                            <h4 class="lp-content-title">Madain Tower</h4>
-                            <span>Project | Category</span>
-                        </div>
-                        <div class="lp-content-right">
-                            <a href="project-details.html" class="lp-property-view"><i class="fas fa-arrow-right"></i></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="location-property-wrap">
-                    <div class="location-property-thumb">
-                        <a href="project-details.html"><img src="<?/*= base_url() . 'assets_web/img' */?>/c-2.jpg" class="img-fluid" alt="images" /></a>
-                    </div>
-                    <div class="location-property-content">
-                        <div class="lp-content-flex">
-                            <h4 class="lp-content-title">Madain Square</h4>
-                            <span>Project | Category</span>
-                        </div>
-                        <div class="lp-content-right">
-                            <a href="project-details.html" class="lp-property-view"><i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="location-property-wrap">
-                    <div class="location-property-thumb">
-                        <a href="project-details.html"><img src="<?/*= base_url() . 'assets_web/img' */?>/c-1.jpg" class="img-fluid" alt="images" /></a>
-                    </div>
-                    <div class="location-property-content">
-                        <div class="lp-content-flex">
-                            <h4 class="lp-content-title">Madain Tower</h4>
-                            <span>Project | Category</span>
-                        </div>
-                        <div class="lp-content-right">
-                            <a href="project-details.html" class="lp-property-view"><i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="location-property-wrap">
-                    <div class="location-property-thumb">
-                        <a href="project-details.html"><img src="<?/*= base_url() . 'assets_web/img' */?>/c-3.jpg" class="img-fluid" alt="images" /></a>
-                    </div>
-                    <div class="location-property-content">
-                        <div class="lp-content-flex">
-                            <h4 class="lp-content-title">Marina Arcade</h4>
-                            <span>Project | Category</span>
-                        </div>
-                        <div class="lp-content-right">
-                            <a href="project-details.html" class="lp-property-view"><i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
-        </div>
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                <a href="<?=base_url()?>projects" class="btn btn-theme-light rounded"><?=translate_web('Browse_More_Projects')?></a>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ============================ Projects End ================================== -->
-<!-- ============================ How To Use Start ================================== -->
-<section>
+            </div> <!-- row -->
+
+        </div> <!-- container -->
+    </section>
+    <?php
+}
+?>
+
+<?php if (isset($blogs) && (!empty($blogs))) { ?>
+
+<!--====== اخر الاخبار ======-->
+<section id="news-part" class="pt-90 pb-90 direction" data-aos="fade-down" data-aos-easing="linear"
+         data-aos-duration="900">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-7 col-md-10 text-center">
-                <div class="sec-heading center">
-                    <h2><?=translate_web('How_It_Works?')?></h2>
-                    <p><?=translate_web('Discover_our_meticulously_designed_apartments_and_unlock_a_world_of_elegance_and_comfort_that_will_surpass_your_expectations')?></p>
-                </div>
-            </div>
-        </div>
         <div class="row">
-            <?php if (isset($about_us) && (!empty($about_us))) {
-                if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
-                    switch ($_SESSION['site_lang']) {
-                        case 'arabic':
-                            $mission = 'our_mission';
-                            $vision = 'our_vision';
-                            $our_goals = 'our_goals';
-                            break;
-                        case 'english':
-                            $mission = 'our_mission_en';
-                            $vision = 'our_vision_en';
-                            $our_goals = 'our_goals_en';
-                            break;
-                        case 'russian':
-                            $mission = 'our_mission_ru';
-                            $vision = 'our_vision_ru';
-                            $our_goals = 'our_goals_ru';
-                            break;
-                        default:
-                            $mission = 'our_mission_en';
-                            $vision = 'our_vision_en';
-                            $our_goals = 'our_goals_en';
-                            break;
-                    }
+            <div class="col-lg-6">
+                <div class="section-title pb-50">
+                    <h5><?= translate_web('Our_Blog') ?></h5>
+                    <h2><?= translate_web('Our_Blog_title') ?></h2>
+                </div> <!-- section title -->
+            </div>
+        </div> <!-- row -->
+        <div class="row">
+            <?php
+            if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
+                switch ($_SESSION['site_lang']) {
+                    case 'arabic':
+                        $product_name = 'name_ar';
+                        $product_description = 'description_ar';
+                        break;
+                    case 'english':
+                        $product_name = 'name_en';
+                        $product_description = 'description_en';
+                        break;
+                    case 'russian':
+                        $product_name = 'name_ru';
+                        $product_description = 'description_ru';
+                        break;
+                    default:
+                        $product_name = 'name_en';
+                        $product_description = 'description_en';
+                        break;
                 }
             }
-            ?>
-            <div class="col-lg-4 col-md-4">
-                <div class="middle-icon-features-item">
-                    <div class="icon-features-wrap">
-                        <div class="middle-icon-large-features-box f-light-success">
-                            <i class="fa-solid fa-map-location-dot"></i></div></div>
-                    <div class="middle-icon-features-content">
-                        <h4><?=translate_web('Our_Mission')?></h4>
-                        <p><?php
-                          echo  substr_replace(strip_tags($about_us[0]->$mission), '... <br/> <a href="'.base_url().'about_us"
-                            class="bl-continue">'.translate_web('Read_More').'<i
-                                    class="fas fa-arrow-right"></i></a>', 250);
-                            ?></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4">
-                <div class="middle-icon-features-item">
-                    <div class="icon-features-wrap">
-                        <div class="middle-icon-large-features-box f-light-success">
-                            <i class="fa-solid fa-user-group"></i></div></div>
-                    <div class="middle-icon-features-content">
-                        <h4><?=translate_web('Our_Vision')?></h4>
-                        <p><?php
-                            echo  substr_replace(strip_tags($about_us[0]->$vision), '... <br/> <a href="'.base_url().'about_us"
-                            class="bl-continue">'.translate_web('Read_More').'<i
-                                    class="fas fa-arrow-right"></i></a>', 250);
-                            ?></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4">
-                <div class="middle-icon-features-item remove">
-                    <div class="icon-features-wrap">
-                        <div class="middle-icon-large-features-box f-light-success">
-                            <i class="fa-solid fa-clipboard-check"></i></div></div>
-                    <div class="middle-icon-features-content">
-                        <h4><?=translate_web('Our_Goals')?></h4>
-                        <p><?php
-                            echo  substr_replace(strip_tags($about_us[0]->$our_goals), '... <br/> <a href="'.base_url().'about_us"
-                            class="bl-continue">'.translate_web('Read_More').'<i
-                                    class="fas fa-arrow-right"></i></a>', 250);
-                            ?></p>
+            foreach ($blogs as $blog) {
+                ?>
 
-                    </div>
+                <div class="col-lg-6">
+                    <div class="singel-news mt-30">
+                        <div class="news-thum pb-25">
+                            <img src="<?= base_url() . 'assets_web/images/' ?>news/img1.jpg" alt="News">
+                        </div>
+                        <div class="news-cont">
+                            <ul>
+                                <li><a><i class="fa fa-calendar"></i>6-11-2023 </a></li>
+                                <li><a> <i class="fa fa-calendar"></i> احمد حسن</a></li>
+                            </ul>
+                            <a href="news-details.html"><h3>هذا العنوان تجريبى ويمكن حذفه</h3></a>
+                            <p>التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل
+                                التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل
+                                التفاصيل
+                                التفاصيل التفاصيل التفاصيل التفاصيل </p>
+                        </div>
+                    </div> <!-- singel news -->
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-<div class="clearfix"></div>
-<!-- ============================ How To Use End ====================== -->
-<!-- ================================= Blog Start ================================== -->
-<section>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-7 col-md-10 text-center">
-                <div class="sec-heading center">
-                    <h2><?=translate_web('Our_Blog')?></h2>
-                    <p><?=translate_web('Discover_our_meticulously_designed_apartments_and_unlock_a_world_of_elegance_and_comfort_that_will_surpass_your_expectations')?></p>
-                </div>
-            </div>
-        </div>
-  <!--      <div class="row">
-
-            <?php /*if(isset($blogs) && !empty($blogs)){
-                foreach ($blogs as $row){ */?>
-                    <?php /*if ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'english')) {
-                        $name= $row->name_en;
-                        $description= $row->description_en;
-                    }elseif($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'russian')){
-                        $name= $row->name_ru;
-                        $description= $row->description_ru;
-                    }else{
-                        $name= $row->name_ar;
-                        $description= $row->description_ar;
-                    }
-                    */?>
-
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="blog-wrap-grid">
-                            <div class="blog-thumb">
-                                <a href="blog-detail.html"><img src="<?/*= base_url() . 'assets_web/img' */?>/p-11.jpeg" class="img-fluid" alt="images" /></a>
-                            </div>
-                            <div class="blog-info">
-                                <span class="post-date"><i class="fa-regular fa-calendar-days"></i>30 Mars 2023</span>
-                            </div>
-                            <div class="blog-body">
-                                <h4 class="bl-title"><a href="#!">Why people choose us for own properties</a></h4>
-                                <p>At Mada’in Properties PJSC, we exist to create innovative, boutique properties that surpass all expectations in detail </p>
-                                <a href="blog-detail.html" class="bl-continue">Read more <i class="fas fa-arrow-right"></i></a>
+            <?php } ?>
+            <div class="col-lg-6">
+                <div class="singel-news news-list">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="news-thum mt-30">
+                                <img src="<?= base_url() . 'assets_web/images/' ?>news/img2.jpg" alt="News">
                             </div>
                         </div>
-                    </div>
-
-                    <?php
-/*                }
-            } */?>
-
-          <div class="col-lg-4 col-md-6">
-                <div class="blog-wrap-grid">
-                    <div class="blog-thumb">
-                        <a href="blog-detail.html"><img src="<?/*= base_url() . 'assets_web/img' */?>/p-8.jpeg" class="img-fluid" alt="images" /></a>
-                    </div>
-                    <div class="blog-info">
-                        <span class="post-date"><i class="fa-regular fa-calendar-days"></i>10 August 2022</span>
-                    </div>
-                    <div class="blog-body">
-                        <h4 class="bl-title"><a href="#!">List of benifits and impressive MADA'IN services</a></h4>
-                        <p>At Mada’in Properties PJSC, we exist to create innovative, boutique properties that surpass all expectations in detail </p>
-                        <a href="blog-detail.html" class="bl-continue">Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
+                        <div class="col-sm-8">
+                            <div class="news-cont mt-30">
+                                <ul>
+                                    <li><a><i class="fa fa-calendar"></i>6-11-2023 </a></li>
+                                    <li><a> <i class="fa fa-calendar"></i> احمد حسن</a></li>
+                                </ul>
+                                <a href="news-details.html"><h3>هذا العنوان تجريبى ويمكن حذفه</h3></a>
+                                <p>التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل
+                                    التفاصيل التفاصيل</p>
+                            </div>
+                        </div>
+                    </div> <!-- row -->
+                </div> <!-- singel news -->
+                <div class="singel-news news-list">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="news-thum mt-30">
+                                <img src="<?= base_url() . 'assets_web/images/' ?>news/img3.jpg" alt="News">
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="news-cont mt-30">
+                                <ul>
+                                    <li><a><i class="fa fa-calendar"></i>6-11-2023 </a></li>
+                                    <li><a> <i class="fa fa-calendar"></i> احمد حسن</a></li>
+                                </ul>
+                                <a href="news-details.html"><h3>هذا العنوان تجريبى ويمكن حذفه</h3></a>
+                                <p>التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل
+                                    التفاصيل التفاصيل</p>
+                            </div>
+                        </div>
+                    </div> <!-- row -->
+                </div> <!-- singel news -->
+                <div class="singel-news news-list">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="news-thum mt-30">
+                                <img src="<?= base_url() . 'assets_web/images/' ?>news/img4.jpg" alt="News">
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="news-cont mt-30">
+                                <ul>
+                                    <li><a><i class="fa fa-calendar"></i>6-11-2023 </a></li>
+                                    <li><a> <i class="fa fa-calendar"></i> احمد حسن</a></li>
+                                </ul>
+                                <a href="news-details.html"><h3>هذا العنوان تجريبى ويمكن حذفه</h3></a>
+                                <p>التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل
+                                    التفاصيل التفاصيل</p>
+                            </div>
+                        </div>
+                    </div> <!-- row -->
+                </div> <!-- singel news -->
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-wrap-grid">
-                    <div class="blog-thumb">
-                        <a href="blog-detail.html"><img src="<?/*= base_url() . 'assets_web/img' */?>/p-10.jpeg" class="img-fluid" alt="images" /></a>
-                    </div>
-                    <div class="blog-info">
-                        <span class="post-date"><i class="fa-regular fa-calendar-days"></i>30 April 2023</span>
-                    </div>
-                    <div class="blog-body">
-                        <h4 class="bl-title"><a href="#!">What people says about MADA'IN properties</a></h4>
-                        <p>At Mada’in Properties PJSC, we exist to create innovative, boutique properties that surpass all expectations in detail </p>
-                        <a href="blog-detail.html" class="bl-continue">Read more  <i class="fas fa-arrow-right"></i> </a>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-        <div class="row">
-            <?php if (isset($blogs) && (!empty($blogs))) {
-            if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
-            switch ($_SESSION['site_lang']) {
-            case 'arabic':
-            $product_name = 'name_ar';
-            $product_description = 'description_ar';
-            break;
-            case 'english':
-            $product_name = 'name_en';
-            $product_description = 'description_en';
-            break;
-            case 'russian':
-            $product_name = 'name_ru';
-            $product_description = 'description_ru';
-            break;
-            default:
-            $product_name = 'name_en';
-            $product_description = 'description_en';
-            break;
-            }
-            }
-            foreach ($blogs as $blog) {
-            ?>
-            <!-- Single blog Grid -->
-            <div class="col-lg-4 col-md-6">
-                <div class="blog-wrap-grid">
-
-                    <div class="blog-thumb">
-                        <?php if (isset($blog->image) && (!empty($blog->image))) {
-                        $img_url = base_url() . 'uploads/news/' . $blog->image;
-                        } else {
-                        $img_url = base_url() . 'assets_web/img/p-1.jpg';
-
-                        }
-                        ?>
-                        <a href="<?= base_url() . 'one_blog/' . base64_encode($blog->id) ?>"><img
-                                    src="<?= $img_url ?>" class="img-fluid"
-                                    alt="images"/></a>
-                    </div>
-
-                    <div class="blog-info">
-<!--                        <span class="post-date"><i class="fa-regular fa-calendar-days"></i>30 july 2023</span>
--->
-                        <span class="post-date"><i class="fa-regular fa-calendar-days"></i><?=date('d M Y',strtotime($blog->create_at))?></span>
-                    </div>
-
-                    <div class="blog-body">
-                        <h4 class="bl-title"><a
-                                    href="<?= base_url() . 'one_blog/' . base64_encode($blog->id) ?>"><?= $blog->$product_name ?></a>
-                        </h4>
-                        <p><?= word_limiter($blog->$product_description, 30, '...') ?> </p>
-                        <a href="<?= base_url() . 'one_blog/' . base64_encode($blog->id) ?>"
-                           class="bl-continue"><?= translate_web('Read_more') ?> <i
-                                    class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                </div>
-            </div>
-            <?php }
-            } ?>
-
-
-        </div>
-    </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
 </section>
-<!-- =================================== Blog  End ====================================== -->
+<?php } ?>
+
+<!--====== شركاؤنا ======-->
+<div class="patnar-logo pt-60 pb-60" style="background-image: url(<?= base_url() . 'assets_web/images/' ?>bg-7.png)"
+     data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="section-title pb-45">
+                    <h2>شركاؤنا </h2>
+                    <span class="line"></span>
+                </div>
+            </div>
+        </div> <!-- row -->
+        <div class="row patnar-slied">
+            <div class="col-lg-12">
+                <div class="singel-patnar text-center mt-40">
+                    <img src="<?= base_url() . 'assets_web/images/' ?>patnar-logo/p-1.png" alt="Logo">
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="singel-patnar text-center mt-40">
+                    <img src="<?= base_url() . 'assets_web/images/' ?>patnar-logo/p-2.png" alt="Logo">
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="singel-patnar text-center mt-40">
+                    <img src="<?= base_url() . 'assets_web/images/' ?>patnar-logo/p-3.png" alt="Logo">
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="singel-patnar text-center mt-40">
+                    <img src="<?= base_url() . 'assets_web/images/' ?>patnar-logo/p-4.png" alt="Logo">
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="singel-patnar text-center mt-40">
+                    <img src="<?= base_url() . 'assets_web/images/' ?>patnar-logo/p-2.png" alt="Logo">
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="singel-patnar text-center mt-40">
+                    <img src="<?= base_url() . 'assets_web/images/' ?>patnar-logo/p-3.png" alt="Logo">
+                </div>
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div> 
+   

@@ -33,7 +33,7 @@
                             echo "<span style='color:red'>" . form_error('date') . "</span>";
                         } ?>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col arabic">
                         <div class="form-group">
                             <label><?=translate('Job_title_in_Arabic')?></label>
                             <div class="input-group">
@@ -48,7 +48,7 @@
                             echo "<span style='color:red'>" . form_error('title') . "</span>";
                         } ?>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col english">
                         <div class="form-group">
                             <label><?=translate('Job_title_in_English')?></label>
                             <div class="input-group">
@@ -63,7 +63,7 @@
                             echo "<span style='color:red'>" . form_error('title_en') . "</span>";
                         } ?>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col russian">
                         <div class="form-group">
                             <label><?=translate('Job_title_in_Russian')?></label>
                             <div class="input-group">
@@ -79,7 +79,7 @@
                         } ?>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row arabic">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label><?=translate('Job_Details_in_Arabic')?></label>
@@ -93,7 +93,7 @@
                             echo "<span style='color:red'>" . form_error('details') . "</span>";
                         } ?>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 english">
                         <div class="form-group">
                             <label><?=translate('Job_Details_in_English')?></label>
                             <div class="input-group">
@@ -106,7 +106,7 @@
                             echo "<span style='color:red'>" . form_error('details_en') . "</span>";
                         } ?>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 russian">
                         <div class="form-group">
                             <label><?=translate('Job_Details_in_Russian')?></label>
                             <div class="input-group">
@@ -120,7 +120,7 @@
                         } ?>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 arabic">
                         <div class="form-group">
                             <label><?=translate('Job_responsibilities_in_Arabic')?></label>
                             <div class="input-group">
@@ -133,7 +133,7 @@
                             echo "<span style='color:red'>" . form_error('responsibilities') . "</span>";
                         } ?>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 english">
                         <div class="form-group">
                             <label><?=translate('Job_responsibilities_in_English')?></label>
                             <div class="input-group">
@@ -146,7 +146,7 @@
                             echo "<span style='color:red'>" . form_error('responsibilities_en') . "</span>";
                         } ?>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 russian">
                         <div class="form-group">
                             <label><?=translate('Job_responsibilities_in_Russian')?></label>
                             <div class="input-group">
@@ -160,7 +160,7 @@
                         } ?>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 arabic">
                         <div class="form-group">
                             <label><?=translate('Job_Education_and_Experience_in_Arabic')?></label>
                             <div class="input-group">
@@ -173,7 +173,7 @@
                             echo "<span style='color:red'>" . form_error('education_experience') . "</span>";
                         } ?>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 english">
                         <div class="form-group">
                             <label><?=translate('Job_Education_and_Experience_in_English')?></label>
                             <div class="input-group">
@@ -186,7 +186,7 @@
                             echo "<span style='color:red'>" . form_error('education_experience_en') . "</span>";
                         } ?>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 russian">
                         <div class="form-group">
                             <label><?=translate('Job_Education_and_Experience_in_Russian')?></label>
                             <div class="input-group">
@@ -200,7 +200,7 @@
                         } ?>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 arabic">
                         <div class="form-group">
                             <label><?=translate('Job_Skills_in_Arabic')?></label>
                             <div class="input-group">
@@ -213,7 +213,7 @@
                             echo "<span style='color:red'>" . form_error('skills') . "</span>";
                         } ?>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 english">
                         <div class="form-group">
                             <label><?=translate('Job_Skills_in_English')?></label>
                             <div class="input-group">
@@ -226,7 +226,7 @@
                             echo "<span style='color:red'>" . form_error('skills_en') . "</span>";
                         } ?>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 russian">
                         <div class="form-group">
                             <label><?=translate('Job_Skills_in_Russian')?></label>
                             <div class="input-group">

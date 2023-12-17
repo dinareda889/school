@@ -58,6 +58,13 @@
     <link rel="stylesheet" href="<?= base_url() ?>assets/plugins/summernote/summernote-bs4.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <style>
+
+        .russian{
+            display: none;
+        }
+    </style>
     <!--    <link rel="icon" type="image/png" sizes="16x16" href="-->
     <? //=base_url()?><!--/assets/login/img/favicon.png">-->
     <!-- Bootstrap 4 RTL -->
@@ -81,6 +88,7 @@
                 z-index: 1060;
                 left: auto !important;
             }
+
         </style>
     <?php } ?>
 <!--    <link rel="stylesheet" href="--><?//= base_url() . 'assets/' ?><!--sweet_alert1/sweetalert.css">-->

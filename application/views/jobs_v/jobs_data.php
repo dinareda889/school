@@ -17,9 +17,9 @@
                     <tr>
                         <th class="text-center">#</th>
                         <th class="text-center"><?=translate('The_Date')?></th>
-                        <th class="text-center"><?=translate('Job_title_in_Arabic')?></th>
-                        <th class="text-center"><?=translate('Job_title_in_English')?></th>
-                        <th class="text-center"><?=translate('Job_title_in_Russian')?></th>
+                        <th class="text-center arabic"><?=translate('Job_title_in_Arabic')?></th>
+                        <th class="text-center english"><?=translate('Job_title_in_English')?></th>
+                        <th class="text-center russian"><?=translate('Job_title_in_Russian')?></th>
                         <th class="text-center"><?=translate('Action')?></th>
                     </tr>
                     </thead>
@@ -83,6 +83,15 @@ if($set_lang == 'english'){
                 {
                     "targets":[0,-1],
                     "orderable" : false
+                },{
+                    targets: 2,
+                    className: 'arabic',
+                },{
+                    targets: 3,
+                    className: 'english',
+                },{
+                    targets: 4,
+                    className: 'russian',
                 }
             ],
             "order" : [],

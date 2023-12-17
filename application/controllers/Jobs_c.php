@@ -156,19 +156,19 @@ class Jobs_c extends CI_Controller
         $this->form_validation->set_rules('date', translate('The_Date'), 'required');
         $this->form_validation->set_rules('title', translate('Job_title_in_Arabic'), 'required');
         $this->form_validation->set_rules('title_en', translate('Job_title_in_English'), 'required');
-        $this->form_validation->set_rules('title_ru', translate('Job_title_in_Russian'), 'required');
+//        $this->form_validation->set_rules('title_ru', translate('Job_title_in_Russian'), 'required');
         $this->form_validation->set_rules('details', translate('Job_Details_in_Arabic'), 'required');
         $this->form_validation->set_rules('details_en', translate('Job_Details_in_English'), 'required');
-        $this->form_validation->set_rules('details_ru', translate('Job_Details_in_Russian'), 'required');
+//        $this->form_validation->set_rules('details_ru', translate('Job_Details_in_Russian'), 'required');
         $this->form_validation->set_rules('responsibilities', translate('Job_responsibilities_in_Arabic'), 'required');
         $this->form_validation->set_rules('responsibilities_en', translate('Job_responsibilities_in_English'), 'required');
-        $this->form_validation->set_rules('responsibilities_ru', translate('Job_responsibilities_in_Russian'), 'required');
+//        $this->form_validation->set_rules('responsibilities_ru', translate('Job_responsibilities_in_Russian'), 'required');
         $this->form_validation->set_rules('education_experience', translate('Job_Education_and_Experience_in_Arabic'), 'required');
         $this->form_validation->set_rules('education_experience_en', translate('Job_Education_and_Experience_in_English'), 'required');
-        $this->form_validation->set_rules('education_experience_ru', translate('Job_Education_and_Experience_in_Russian'), 'required');
+//        $this->form_validation->set_rules('education_experience_ru', translate('Job_Education_and_Experience_in_Russian'), 'required');
         $this->form_validation->set_rules('skills', translate('Job_Skills_in_Arabic'), 'required');
         $this->form_validation->set_rules('skills_en', translate('Job_Skills_in_English'), 'required');
-        $this->form_validation->set_rules('skills_ru', translate('Job_Skills_in_Russian'), 'required');
+//        $this->form_validation->set_rules('skills_ru', translate('Job_Skills_in_Russian'), 'required');
 
 
         if ($this->form_validation->run() == FALSE) {
@@ -200,19 +200,19 @@ class Jobs_c extends CI_Controller
         $this->form_validation->set_rules('date', translate('The_Date'), 'required');
         $this->form_validation->set_rules('title', translate('Job_title_in_Arabic'), 'required');
         $this->form_validation->set_rules('title_en', translate('Job_title_in_English'), 'required');
-        $this->form_validation->set_rules('title_ru', translate('Job_title_in_Russian'), 'required');
+//        $this->form_validation->set_rules('title_ru', translate('Job_title_in_Russian'), 'required');
         $this->form_validation->set_rules('details', translate('Job_Details_in_Arabic'), 'required');
         $this->form_validation->set_rules('details_en', translate('Job_Details_in_English'), 'required');
-        $this->form_validation->set_rules('details_ru', translate('Job_Details_in_Russian'), 'required');
+//        $this->form_validation->set_rules('details_ru', translate('Job_Details_in_Russian'), 'required');
         $this->form_validation->set_rules('responsibilities', translate('Job_responsibilities_in_Arabic'), 'required');
         $this->form_validation->set_rules('responsibilities_en', translate('Job_responsibilities_in_English'), 'required');
-        $this->form_validation->set_rules('responsibilities_ru', translate('Job_responsibilities_in_Russian'), 'required');
+//        $this->form_validation->set_rules('responsibilities_ru', translate('Job_responsibilities_in_Russian'), 'required');
         $this->form_validation->set_rules('education_experience', translate('Job_Education_and_Experience_in_Arabic'), 'required');
         $this->form_validation->set_rules('education_experience_en', translate('Job_Education_and_Experience_in_English'), 'required');
-        $this->form_validation->set_rules('education_experience_ru', translate('Job_Education_and_Experience_in_Russian'), 'required');
+//        $this->form_validation->set_rules('education_experience_ru', translate('Job_Education_and_Experience_in_Russian'), 'required');
         $this->form_validation->set_rules('skills', translate('Job_Skills_in_Arabic'), 'required');
         $this->form_validation->set_rules('skills_en', translate('Job_Skills_in_English'), 'required');
-        $this->form_validation->set_rules('skills_ru', translate('Job_Skills_in_Russian'), 'required');
+//        $this->form_validation->set_rules('skills_ru', translate('Job_Skills_in_Russian'), 'required');
 
 
         if ($this->form_validation->run() == FALSE) {
