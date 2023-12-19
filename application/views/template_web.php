@@ -85,7 +85,7 @@
                     <div class="header-contact text-lg-right text-center">
                         <ul>
                             <li><i class="fa fa-phone text-white" aria-hidden="true"></i>
-                                <span>009716507504510</span></li>
+                                <span><?=$this->company_data->telepon_code?></span></li>
 
                         </ul>
                     </div>
@@ -95,7 +95,7 @@
                         <ul>
 
                             <li><i class="fa fa-envelope text-white" aria-hidden="true"></i>
-                                <span>info@domain.com</span></li>
+                                <span><?=$this->company_data->email?>"></span></li>
 
                         </ul>
                     </div>
@@ -106,7 +106,7 @@
                         <ul>
 
                             <li><i class="fa fa-map-marker text-white" aria-hidden="true"></i>
-                                <span> الامارات العربية المتحدة</span></li>
+                                <span><?=$this->company_data->$address?></span></li>
                         </ul>
                     </div>
                 </div>
@@ -141,7 +141,10 @@
 
                                 <li class="nav-item <?= $this->uri->segment(1) == 'about_us' ? "active" : '' ?>"><a
                                             href="<?= base_url() ?>about_us"><?= translate_web('About') ?></a></li>
-                                <li class="nav-item"><a href="teachers.html">المعلمين</a></li>
+
+                                <li class="nav-item <?= $this->uri->segment(1) == 'teachers' ? "active" : '' ?>"><a
+                                            href="<?= base_url() ?>teachers"><?= translate_web('teachers') ?></a></li>
+<!--                                <li class="nav-item"><a href="teachers.html">المعلمين</a></li>-->
                                 <li class="nav-item"><a href="gallery.html">معرض الصور</a></li>
 
                                 <li class="nav-item"><a href="videos.html">الفيديوهات</a></li>

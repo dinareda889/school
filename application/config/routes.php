@@ -72,6 +72,7 @@ $route['one_career/(:any)'] = "Web/one_career/$1";
 
 
 
+$route['teachers'] = 'Web/teachers';
 $route['about_us'] = 'Web/about_us';
 $route['contact_us'] = 'Web/contact_us';
 $route['contact/(:any)'] = 'Web/contact/$1';
