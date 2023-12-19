@@ -60,9 +60,7 @@ if (isset($one_blog->comments) && (!empty($one_blog->comments))) {
                                             $img_url = base_url() . 'uploads/news/' . $img->image;
                                         } else {
                                             $img_url = base_url() . 'assets_web/img/p-1.jpg';
-
                                         }
-
                                         ?>
                                         <div class="featured_slick_padd"><a href="<?= $img_url ?>" class="mfp-gallery">
                                                 <img src="<?= $img_url ?>" class="img-fluid mx-auto" alt="images"/>

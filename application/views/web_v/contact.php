@@ -1,127 +1,112 @@
 <!-- ============================ Page Title Start================================== -->
-<div class="page-title">
-    <div class="overlay"></div>
+<section id="page-banner" class="pt-120 pb-120 bg_cover" data-overlay="8" style="background-image: url(<?= base_url() . 'assets_web/' ?>images/page-baner/contact.jpg)">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-                <h2 class="ipt-title"><?=translate_web('Contact_us')?></h2>
-                <span class="ipn-subtitle"><?=translate_web('Please_contact_us_any_time')?></span>
+        <div class="row direction">
+            <div class="col-lg-12">
+                <div class="page-banner-cont">
+                    <h2><?=translate_web('Contact_us')?></h2>
+
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+
 <!-- ============================ Page Title End ================================== -->
 <!-- ============================ Contact info Start ================================== -->
-<section class="bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="contact-box box-wrap">
-                    <div class="address-icon box-icon">
-                        <img src="<?= base_url() . 'assets_web/img' ?>/icon/address.png" alt="Icon Image">
+<section id="contact-page" class="pt-60 pb-60 bck">
+    <div class="container c-relative">
+        <div class="row direction">
+            <div class="col-lg-7"  data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900">
+                <div class="contact-from ">
+                    <div class="section-title">
+                        <h5>اتصل بنا</h5>
+                        <h2>ابق على تواصل معنا</h2>
                     </div>
-                    <h3 class="section-title"><?=translate_web('Email_Address')?></h3>
-                    <p><?=$this->company_data->email?></p>
+                    <div class="main-form pt-45">
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="singel-form form-group">
+                                        <input name="name" type="text" placeholder="الأسم"  required="required">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="singel-form form-group">
+                                        <input name="email" type="email" placeholder="البريد الالكترونى"  required="required">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="singel-form form-group">
+                                        <input name="phone" type="number" placeholder="رقم التليفون">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="singel-form form-group">
+                                        <textarea name="messege" placeholder="الرسالة"></textarea>
+                                    </div>
+                                </div>
+                                <p class="form-message"></p>
+                                <div class="col-md-12">
+                                    <div class="singel-form">
+                                        <button type="submit" class="main-btn">ارسال</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="contact-box box-wrap">
-                    <div class="address-icon box-icon">
-                        <img src="<?= base_url() . 'assets_web/img' ?>/icon/phone.png" alt="Icon Image">
-                    </div>
-                    <h3 class="section-title"><?=translate_web('Phone_Number')?></h3>
-                    <p style="direction: ltr;unicode-bidi: bidi-override;"><?=$this->company_data->telepon_code?> <br> <?=$this->company_data->hp_code?> </p>
+
+            <div class="col-lg-5"  data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900">
+                <div class="contact-address ">
+                    <ul>
+                        <li>
+                            <div class="singel-address">
+                                <div class="icon">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <div class="cont">
+                                    <p>الشارقة - الامارات العربية المتحدة  </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="singel-address">
+                                <div class="icon">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                                <div class="cont">
+                                    <p><a href="tel:009716507504510">009716507504510</a></p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="singel-address">
+                                <div class="icon">
+                                    <i class="fa fa-envelope-o"></i>
+                                </div>
+                                <div class="cont">
+                                    <p><a href="tel:info@domain.com" >info@domain.com</a></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="contact-box box-wrap">
-                    <div class="address-icon box-icon">
-                        <img src="<?= base_url() . 'assets_web/img' ?>/icon/map.png" alt="Icon Image">
+
+
+
+                <div class="map mt-30"  data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900">
+                    <div class="mapouter">
+                        <iframe width="100%" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D8%B4%D8%A7%D8%B1%D9%82%D8%A9&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                     </div>
-                    <h3 class="section-title"><?=translate_web('Office_Address')?></h3>
-                    <?php if (isset($this->company_data->address) && (!empty($this->company_data->address))) {
-                        if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
-                            switch ($_SESSION['site_lang']) {
-                                case 'arabic':
-                                    $address = 'address';
-                                    break;
-                                case 'english':
-                                    $address = 'address_en';
-                                    break;
-                                case 'russian':
-                                    $address = 'address_ru';
-                                    break;
-                                default:
-                                    $address = 'address_en';
-                                    break;
-                            }
-                        }
-                    }
-                    ?>
-                    <p><?=$this->company_data->$address?></p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!-- ============================ Contact info End ================================== -->
-<!-- CONTACT MESSAGE AREA START -->
-<div class="contact-form">
-    <!-- GOOGLE MAP AREA START -->
-    <div class="google-map mb-120">
-        <?=$this->company_data->google_map?>
-<!--        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.346596831687!2d55.15251838499256!3d25.090126183946193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b5a8a455a81%3A0x5539088067fb331d!2sMarina%20Arcade%20Tower!5e0!3m2!1sar!2seg!4v1689198020691!5m2!1sar!2seg" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
--->
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-12">
-                <div class="contact-form-box" >
-                    <h4 class="title-2"><?=translate_web('Get_A_Quote')?></h4>
-                    <?php echo form_open('contact_us', array('id' => "contact-form")); ?>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="input-item">
-                                    <input type="text" class="form-control" name="name" placeholder="<?=translate_web('Your_name')?>" value="<?= set_value('name', '') ?>">
-                                    <?php if (form_error('name')) {
-                                        echo "<span style='color:red;text-align: right;'>" . form_error('name') . "</span>";
-                                    } ?>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="input-item">
-                                    <input type="email" class="form-control" name="email" placeholder="<?=translate_web('Your_email')?>" value="<?= set_value('email', '') ?>">
-                                    <?php if (form_error('email')) {
-                                        echo "<span style='color:red;text-align: right;'>" . form_error('email') . "</span>";
-                                    } ?>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="input-item">
-                                    <input type="number"  class="form-control" name="phone" placeholder="<?=translate_web('Your_phone')?>" value="<?= set_value('phone', '') ?>">
-                                    <?php if (form_error('phone')) {
-                                        echo "<span style='color:red;text-align: right;'>" . form_error('phone') . "</span>";
-                                    } ?>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="input-item ">
-                                    <textarea name="message" class="form-control" placeholder="<?=translate_web('Your_Message')?>">
-                                        <?= set_value('message', '') ?>
-                                    </textarea>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="input-item">
-                                    <button type="submit" name="add" value="add" class="btn send-button btn-theme-light rounded"><?=translate_web('Send_Message')?></button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-</div>

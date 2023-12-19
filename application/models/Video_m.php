@@ -1,8 +1,8 @@
 <?php
 class Video_m extends CI_Model
 {
-    var $column_order_groups = array(null, 'company_stats.date_ar','company_stats.video_link'); //set column field database for datatable orderable
-    var $column_search_groups = array('company_stats.date_ar','company_stats.video_link'); //set column field database for datatable searchable
+    var $column_order_groups = array(null, 'company_stats.date_ar','company_stats.link'); //set column field database for datatable orderable
+    var $column_search_groups = array('company_stats.date_ar','company_stats.link'); //set column field database for datatable searchable
     var $order_groups = array('company_stats.id' => 'desc');
     private function _get_datatables_query_company_stats()
     {
@@ -63,12 +63,18 @@ class Video_m extends CI_Model
     }
     public function add_company_stats($post,$video_link)
     {
-/*        $link =explode('https://www.youtube.com/watch?v=',$post['video_link']);*/
         $params = [
             'date' => strtotime($post['date']),
-            'date_ar' => $post['date'],
-            'video_link' => $video_link
+            'date_ar' => $post['date']
         ];
+        $link =  $post['link'];
+        $video_id = explode("?v=", $link); // For videos like http://www.youtube.com/watch?v=...
+        if (empty($video_id[1]))
+            $video_id = explode("/v/", $link); // For videos like http://www.youtube.com/watch/v/..
+
+        $video_id = explode("&", $video_id[1]); // Deleting any other params
+        $video_id = $video_id[0];
+        $params['video_link'] = $video_id;
         $this->db->insert('tbl_video', $params);
     }
     public function edit_company_stats($post,$video_link)
@@ -77,8 +83,21 @@ class Video_m extends CI_Model
             'date' => strtotime($post['date']),
             'date_ar' => $post['date']
         ];
-        if(!empty($video_link)){
-            $params['video_link']=  $video_link;
+        $link =  $post['link'];
+        if(!empty($post['link'])){
+
+
+            $video_id = explode("?v=", $link); // For videos like http://www.youtube.com/watch?v=...
+            if (empty($video_id[1]))
+                $video_id = explode("/v/", $link); // For videos like http://www.youtube.com/watch/v/..
+
+            $video_id = explode("&", $video_id[1]); // Deleting any other params
+            $video_id = $video_id[0];
+
+
+            $params['link_id'] = $video_id;
+        }else{
+            $params['video_link'] = $post['link'];
         }
         $this->db->where('id', $post['id']);
         $this->db->update('tbl_video', $params);

@@ -3,11 +3,11 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">البنرات</h3>
+                <h3 class="card-title"><?=translate('Banners')?></h3>
                 <div class="float-right">
                     <a href="<?=site_url('Banners/add_banners')?>" class="btn btn-primary btn-flat">
                         <i class="fa fa-user-plus"></i>
-                        إضافة بانر  </a>
+                        <?=translate('add_new_banner')?>  </a>
                 </div>
             </div>
             <!-- /.card-header -->
@@ -18,9 +18,9 @@
                     <thead>
                     <tr>
                         <th class="text-center">#</th>
-                        <th class="text-center">الصورة </th>
+                        <th class="text-center"> <?=translate('the_image')?></th>
 <!--                        <th class="text-center">النص</th>-->
-                        <th class="text-center">الإجراء</th>
+                        <th class="text-center"><?=translate('action')?></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -36,7 +36,7 @@
     <div class="modal-dialog modal_details modal-lg">
         <div class="modal-content">
             <div class="modal-header" style="direction: rtl!important;">
-                <h4 class="modal-title">تفاصيل</h4>
+                <h4 class="modal-title"><?=translate('Details')?></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -44,7 +44,7 @@
             <div class="modal-body"  id="details">
             </div>
             <div class="modal-footer ">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">إغلاق</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><?=translate('close')?></button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -52,13 +52,25 @@
     <!-- /.modal-dialog -->
 </div>
 
+<?php
+if ($this->session->has_userdata('set_lang')) {
+    $set_lang = $this->session->userdata('set_lang');
+} else {
+    $set_lang = 'english';
+}
+if($set_lang == 'english'){
+    $lang = 'English.json';
+}else{
+    $lang = 'Arabic.json';
+}
+?>
 <script>
     var dataTable ;
     $(document).ready(function() {
 
         dataTable= $('#table1').DataTable({
             "language": {
-                "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/<?=$lang?>"
             },
             "processing": true,
             "serverSide": true,
@@ -75,11 +87,7 @@
 
             ],
             "order" : [],
-            "dom": 'Bfrtip',
-            "buttons": [
-                { "extend": 'excel', "text": ' شيت اكسيل' },
-                { "extend": 'copy', "text": 'نسخ' }
-            ],
+            "dom": 'Bfrtip'
         });
         //dataTable.ajax.reload();  //just reload table
     } );

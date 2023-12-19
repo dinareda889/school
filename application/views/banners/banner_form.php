@@ -10,12 +10,12 @@
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-primary card-outline">
             <div class="card-header">
-                <h3 class="card-title"> إضافة بانر </h3>
+                <h3 class="card-title"> <?=translate('adding_new_banner')?> </h3>
                 <div class="card-tools">
                     <div class="float-left">
                         <a href="<?= site_url('Banners') ?>" class="btn btn-warning btn-flat">
                             <i class="fa fa-undo"></i>
-                            رجوع</a>
+                            <?=translate('Back')?></a>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
 
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>  الصورة </label>
+                            <label>  <?=translate('the_image')?> </label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-image"></i></span>
@@ -50,7 +50,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>  الوصف بالعربي</label>
+                            <label> <?=translate('Details_in_arabic')?></label>
                             <div class="">
 
                                 <textarea name="description" class="form-control textarea"  id="description">
@@ -65,9 +65,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label> الوصف بالانجليزي</label>
+                            <label> <?=translate('Details_in_english')?></label>
                             <div class="">
-
                                 <textarea name="description_en" class="form-control textarea"  id="description">
                                     </textarea>
                             </div>
@@ -79,7 +78,7 @@
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-labeled btn-success " id="btn-save"  name="add"
-                            value="add"><i class="fa fa-paper-plane"></i>حفظ
+                            value="add"><i class="fa fa-paper-plane"></i><?=translate('Save')?>
                     </button>
                 </div>
                 <?php echo form_close(); ?>

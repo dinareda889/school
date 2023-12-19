@@ -31,7 +31,7 @@ class Video_c extends CI_Controller
     public function index()
     {
         $data['all_company_stats'] = $this->Video_m->get()->result();
-        $data['title'] = translate('About_company');
+        $data['title'] = translate('Videos');
         $this->template->load('template', 'video_v/video_data', $data);
     }
     public function upload_video($file_name,$folder_name){
@@ -75,7 +75,7 @@ class Video_c extends CI_Controller
                          <a href="#" onclick=\'Swal.fire({
                                             title: "'.translate('Are_You_Sure_For_Delete').' ؟",
                                             text: "",
-                                            type: "warning",
+                                            icon: "warning",
                                             showCancelButton: true,
                                             confirmButtonClass: "btn-danger",
                                             confirmButtonText: "'.translate('Delete').'",
@@ -144,10 +144,7 @@ class Video_c extends CI_Controller
         $this->load->library(array('form_validation'));
 
         $this->form_validation->set_rules('date',translate('The_Date'), 'required');
-        if (empty($_FILES['video_link']['name']))
-        {
-            $this->form_validation->set_rules('video_link', translate('The_Video_link'), 'required');
-        }
+        $this->form_validation->set_rules('link', translate('Video_Link'), 'required|callback_check_youtube');
         if ($this->form_validation->run() == FALSE) {
             $company_stats = new stdClass();
             $company_stats->id = null;
@@ -162,8 +159,7 @@ class Video_c extends CI_Controller
         } else {
             $post = $this->input->post(null, TRUE);
             if (isset($_POST['add'])) {
-                $video_link = $this->upload_video("video_link", 'videos');
-                $this->Video_m->add_company_stats($post,$video_link);
+                $this->Video_m->add_company_stats($post,$video_link=null);
                 if ($this->db->affected_rows() > 0) {
                     $this->session->set_flashdata('sukses',translate('Process_Done_Successfully'));
                 }
@@ -176,6 +172,7 @@ class Video_c extends CI_Controller
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->form_validation->set_rules('date',translate('The_Date'), 'required');
+        $this->form_validation->set_rules('link', translate('Video_Link'), 'required|callback_check_youtube');
         if ($this->form_validation->run() == FALSE) {
             $query = $this->Video_m->get($id);
             if ($query->num_rows() > 0) {
@@ -191,8 +188,7 @@ class Video_c extends CI_Controller
         } else {
             $post = $this->input->post(null, TRUE);
             if (isset($_POST['add'])) {
-                $video_link = $this->upload_video("video_link", 'videos');
-
+                $video_link = null;
                 $this->Video_m->edit_company_stats($post,$video_link);
             }
             if ($this->db->affected_rows() > 0) {

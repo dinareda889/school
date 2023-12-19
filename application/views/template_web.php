@@ -14,11 +14,7 @@
     }
 
     if ($this->fungsi->company_data()->nameweb) {
-        if ($this->session->has_userdata('set_lang')) {
-            $set_lang = $this->session->userdata('set_lang');
-        } else {
-            $set_lang = 'english';
-        }
+
         if ($set_lang == 'english') {
             $company_name = $this->fungsi->company_data()->nameweb_en;
 
@@ -42,13 +38,7 @@
     <!--====== Title ======-->
     <title><?= $company_name ?></title>
     <!--====== Favicon Icon ======-->
-    <?php if ($this->session->has_userdata('set_lang')) {
-        $set_lang = $this->session->userdata('set_lang');
-    } else {
-        $set_lang = 'english';
-    }
 
-    ?>
 
     <link rel="shortcut icon" href="<?= base_url() . 'assets_web/images/' ?>favicon.ico" type="image/png">
     <link href="https://fonts.googleapis.com/css?family=Almarai|Roboto&display=swap" rel="stylesheet">
@@ -60,9 +50,16 @@
     <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>font-awesome.min.css">
     <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>default.css">
-    <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>style.css">
     <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>responsive.css">
     <link href="<?= base_url() . 'assets_web/css/' ?>aos.css" rel="stylesheet">
+
+    <?php if (($set_lang == 'english') || ($set_lang == 'russian')) { ?>
+        <!--------------- english style -------->
+        <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>styleen.css">
+    <?php }else{ ?>
+        <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>style.css">
+    <?php } ?>
+
 </head>
 
 <body>
@@ -159,6 +156,19 @@
                                             href="<?= base_url() ?>contact_us"><?= translate_web('Contact_Us') ?></a>
                                 </li>
 
+                                <li class="nav-item">
+                                    <?php if($set_lang == 'english' ){ ?>
+                                <a href="<?php echo base_url() . 'LanguageSwitcher/switchLang/arabic' ?>">
+                                    <img src="<?= base_url() . 'assets_web/' ?>images/united-arab-emirates.png" class="lang">
+                                    <?=translate_web('Arabic')?></a>
+                                <?php }elseif ($set_lang == 'arabic') { ?>
+                                    <a href="<?php echo base_url() . 'LanguageSwitcher/switchLang/english' ?>">
+                                        <img src="<?= base_url() . 'assets_web/' ?>images/united-states.png" class="lang">
+                                        <?=translate_web('English')?></a>
+                                <?php } ?>
+
+<!--                                    <a href="indexen.html"><img src="--><?//= base_url() . 'assets_web/' ?><!--images/united-states.png" class="lang"> EN </a>-->
+                                </li>
 
                             </ul>
                         </div>
@@ -319,14 +329,14 @@ unset($_SESSION['message']);
 <script src="assets/js/main.js"></script>
 <!-- share social -->
 <script>
-    function fbShare(url, title, descr, winWidth, winHeight) {
+    function fbShare(title, descr, winWidth, winHeight) {
         var url = window.location.href;
         var winTop = (screen.height / 2) - (winHeight / 2);
         var winLeft = (screen.width / 2) - (winWidth / 2);
         window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
     }
 
-    function twitterShare(url, winWidth, winHeight) {
+    function twitterShare(winWidth, winHeight) {
         var url = window.location.href;
 
         var winTop = (screen.height / 2) - (winHeight / 2);
@@ -335,7 +345,7 @@ unset($_SESSION['message']);
         window.open('https://twitter.com/share?url=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
     }
 
-    function linkedinShare(url, winWidth, winHeight) {
+    function linkedinShare(winWidth, winHeight) {
         var url = window.location.href;
 
         var winTop = (screen.height / 2) - (winHeight / 2);
@@ -345,7 +355,7 @@ unset($_SESSION['message']);
     }
 
 
-    function instagramShare(url, winWidth, winHeight) {
+    function instagramShare(winWidth, winHeight) {
         var url = window.location.href;
         var winTop = (screen.height / 2) - (winHeight / 2);
         var winLeft = (screen.width / 2) - (winWidth / 2);
@@ -353,7 +363,7 @@ unset($_SESSION['message']);
         window.open(' https://www.instagram.com/shareArticle?url=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
     }
 
-    function whatsappShare(url, winWidth, winHeight) {
+    function whatsappShare(winWidth, winHeight) {
         var url = window.location.href;
         var winTop = (screen.height / 2) - (winHeight / 2);
         var winLeft = (screen.width / 2) - (winWidth / 2);

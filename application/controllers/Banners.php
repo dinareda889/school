@@ -6,12 +6,31 @@ class Banners extends CI_Controller {
         parent::__construct();
         check_not_login();
         $this->load->model(['Banners_m']);
+        if ($this->session->userdata('site_lang')) {
+            switch ($_SESSION['site_lang']) {
+                case 'arabic':
+                    $this->config->set_item('language', 'arabic');
+                    break;
+                case 'english':
+                    $this->config->set_item('language', 'english');
+
+                    break;
+                case 'russian':
+                    $this->config->set_item('language', 'russian');
+
+                    break;
+                default:
+                    $this->config->set_item('language', 'english');
+
+                    break;
+            }
+        }
     }
     
     public function index()
     {
         //$data['all_banners'] = $this->Banners_m->get();
-        $data['title']='البنرات';
+        $data['title']= translate('Banners');
         $this->template->load('template','banners/banner_data',$data);
     }
 
@@ -38,27 +57,25 @@ class Banners extends CI_Controller {
 
             $row[]='
             <div class="btn-block  btn-group-sm">
-                                    <a href="#modal_details" data-toggle="modal" title="تفاصيل" 
+                                    <a href="#modal_details" data-toggle="modal" title="'.translate('Details').'" 
                         onclick="get_load_details('.$item->banner_id.')" class="btn btn-warning btn-sm"> 
                          <i class="fa fa-eye"></i></a>
            
                   
-            <a href="'.base_url().'Banners/edit_banners/'.$item->banner_id.'" title="تعديل"   class="btn btn-info btn-sm">
+            <a href="'.base_url().'Banners/edit_banners/'.$item->banner_id.'" title="'.translate('Update').'"   class="btn btn-info btn-sm">
                                             <i class="fa fa-pencil-alt"> </i></a>
-            <a href="#" title="حذف"  onclick=\'swal({
-                                            title: "هل انت متأكد من الحذف ؟",
-                                            text: "",
-                                            type: "warning",
+            <a href="#" title="' . translate('Delete') . '"  onclick=\'Swal.fire({
+                                            title: "' . translate('Are_You_Sure_For_Delete') . '",
+                                            icon: "warning",
                                             showCancelButton: true,
                                             confirmButtonClass: "btn-danger",
-                                            confirmButtonText: "حذف",
-                                            cancelButtonText: "إلغاء",
-                                            closeOnConfirm: false
-                                            },
-                                            function(){
-                                            swal("تم الحذف!", "", "success");
+                                            confirmButtonText: "' . translate('Delete') . '",
+                                            cancelButtonText: "' . translate('Cancel') . '",
+                                            }).then((result) => {
+                                             if (result.isConfirmed) {
+                                            Swal.fire("' . translate('Deleted') . '!", "", "success");
                                             window.location="'.base_url().'Banners/delete_banners/'.$item->banner_id.'";
-                                            });\' class="btn btn-danger btn-sm">
+                                             }});\' class="btn btn-danger btn-sm">
                                             <i class="fa fa-trash"> </i></a>
                                             
                         </div>
@@ -123,12 +140,12 @@ class Banners extends CI_Controller {
     {
         $this->load->helper(array('form','url'));
         $this->load->library(array('form_validation'));
-        $this->form_validation->set_rules('description', ' الوصف بالعربي', 'required');
-        $this->form_validation->set_rules('description_en', ' الوصف بالانجليزي', 'required');
+        $this->form_validation->set_rules('description', translate('Details_in_arabic'), 'required');
+        $this->form_validation->set_rules('description_en', translate('Details_in_english'), 'required');
 
         if (empty($_FILES['image']['name']))
         {
-            $this->form_validation->set_rules('image', 'الصورة ', 'required');
+            $this->form_validation->set_rules('image', translate('the_image'), 'required');
         }
         if ($this->form_validation->run() == FALSE) {
             $banners = new stdClass();
@@ -150,7 +167,7 @@ class Banners extends CI_Controller {
                 $image = $this->upload_image("image",'banners');
                 $this->Banners_m->add_banners($post,$image);
                 if ($this->db->affected_rows() > 0) {
-                    $this->session->set_flashdata('success', 'تمت العملية بنجاح ');
+                    $this->session->set_flashdata('success', translate('Messages_success'));
                 }
                 redirect('Banners', 'refresh');
             }
@@ -161,9 +178,8 @@ class Banners extends CI_Controller {
     {
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('description', ' الوصف بالعربي', 'required');
-        $this->form_validation->set_rules('description_en', ' الوصف بالانجليزي', 'required');
-
+        $this->form_validation->set_rules('description', translate('Details_in_arabic'), 'required');
+        $this->form_validation->set_rules('description_en', translate('Details_in_english'), 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $query = $this->Banners_m->get($id);
@@ -185,9 +201,9 @@ class Banners extends CI_Controller {
                 $this->Banners_m->edit_banners($post,$image);
             }
             if ($this->db->affected_rows() > 0) {
-                $this->session->set_flashdata('success', 'تمت العملية بنجاح ');
+                $this->session->set_flashdata('success', translate('Messages_success'));
             }else{
-                $this->session->set_flashdata('danger', 'حدث خطأ يرجي المحاوله مره أخري ');
+                $this->session->set_flashdata('danger', translate('Messages_error'));
             }
             redirect('Banners', 'refresh');
         }
@@ -197,12 +213,13 @@ class Banners extends CI_Controller {
 
         $this->Banners_m->delete_banner($banner_id);
         if($this->db->affected_rows() >0){
-            $this->session->set_flashdata('success', 'تم الحذف بنجاح');
+            $this->session->set_flashdata('success', translate('Messages_success'));
         }
         redirect('Banners','refresh');
     }
 
-    /*public function process()
+    /*
+     * public function process()
     {
         $this->load->helper(array('form'));
         $this->load->library(array('form_validation'));

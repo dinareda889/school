@@ -1,37 +1,26 @@
 <!-- ============================ Page Title Start================================== -->
-<div class="page-title">
-    <div class="overlay"></div>
+
+
+<section id="page-banner" class="pt-120 pb-120 bg_cover" data-overlay="8"
+         style="background-image: url(<?= base_url() . 'assets_web/images/' ?>page-baner/terms.jpg)">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 col-md-12">
-
-                <h2 class="ipt-title"><?= translate_web('Our_Blog') ?></h2>
-                <span class="ipn-subtitle"><?= translate_web('Our_Latest_Blog') ?></span>
-
-            </div>
-        </div>
-    </div>
-</div>
-<!-- ============================ Page Title End ================================== -->
-
-<!-- ============================ Blog Start ================================== -->
-<section class="gray-simple">
-
-    <div class="container">
-
-        <div class="row">
-            <div class="col text-center">
-                <div class="sec-heading center">
-                    <h2><?= translate_web('Latest_Blog') ?></h2>
-                    <p><?= translate_web('blog_sub_title') ?></p>
+        <div class="row direction">
+            <div class="col-lg-12">
+                <div class="page-banner-cont">
+                    <h2><?= translate_web('Our_Blog') ?>  </h2>
                 </div>
             </div>
         </div>
+    </div>
+</section>
+<!-- ============================ Page Title End ================================== -->
 
-        <!-- row Start -->
-        <div class="row">
-            <?php if (isset($blogs) && (!empty($blogs))) {
-                if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
+<!-- ============================ Blog Start ================================== -->
+<?php if (isset($blogs) && (!empty($blogs))) { ?>
+    <section class="pt-70 pb-70 bck direction" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900">
+        <div class="container c-relative">
+            <div class="row">
+                <?php if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
                     switch ($_SESSION['site_lang']) {
                         case 'arabic':
                             $name = 'name_ar';
@@ -52,81 +41,52 @@
                     }
                 }
                 foreach ($blogs as $blog) {
+
+                    if (isset($blog->image) && (!empty($blog->image))) {
+                        $img_url = base_url() . 'uploads/news/' . $blog->image;
+                    } else {
+                        $img_url = base_url() . 'assets_web/images/news/img2.jpg';
+                    }
+
+
                     ?>
-                    <!-- Single blog Grid -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="blog-wrap-grid">
-
-                            <div class="blog-thumb">
-                                <?php if (isset($blog->image) && (!empty($blog->image))) {
-                                    $img_url = base_url() . 'uploads/news/' . $blog->image;
-                                } else {
-                                    $img_url = base_url() . 'assets_web/img/p-1.jpg';
-                                }
-                                ?>
-                                <a href="<?= base_url() . 'one_blog/' . base64_encode($blog->id) ?>"><img
-                                            src="<?= $img_url ?>" class="img-fluid"
-                                            alt="images"/></a>
+                    <div class="col-lg-4">
+                        <div class="singel-blog mt-30">
+                            <div class="blog-thum">
+                                <img src="<?= $img_url ?>" alt="Blog">
                             </div>
+                            <div class="blog-cont">
+                                <a href="<?= base_url() . 'one_blog/' . base64_encode($blog->id) ?>">
+                                    <h3><?= $blog->$name ?></h3></a>
+                                <ul>
+                                    <li>
+                                        <a><i class="fa fa-calendar"></i><?= date('y-m-d', strtotime($blog->publish_date)) ?>
+                                        </a></li>
+                                    <!--                                <li><a> <i class="fa fa-calendar"></i> احمد حسن</a></li>-->
+                                </ul>
 
-                            <div class="blog-info">
-                                <span class="post-date"><i class="fa-regular fa-calendar-days"></i>30 july 2023</span>
+                                <p><?= word_limiter($blog->$description, 30, '...') ?></p>
                             </div>
-
-                            <div class="blog-body">
-                                <h4 class="bl-title"><a
-                                            href="<?= base_url() . 'one_blog/' . base64_encode($blog->id) ?>"><?= $blog->$name ?></a>
-                                </h4>
-                                <p><?= word_limiter($blog->$description, 30, '...') ?> </p>
-                                <a href="<?= base_url() . 'one_blog/' . base64_encode($blog->id) ?>"
-                                   class="bl-continue"><?= translate_web('Read_more') ?> <i
-                                            class="fas fa-arrow-right"></i></a>
-                            </div>
-
                         </div>
                     </div>
-                <?php }
-            } ?>
+                <?php } ?>
+
+                <?php if (isset($links) && (!empty($links))) { ?>
 
 
-        </div>
-        <!-- /row -->
+                    <div class="col-lg-12">
+                        <nav class="courses-pagination mt-50">
+                            <?php echo $links; ?>
 
-        <!-- Pagination -->
+                        </nav>
+                    </div>
+                <?php } ?>
 
-        <?php if (isset($links) && (!empty($links))) { ?>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
+            </div> <!-- row -->
 
-                    <?php echo $links; ?>
-
-                    <!--  <ul class="pagination p-center">
-                                      <li class="page-item">
-                                          <a class="page-link" href="#" aria-label="Previous">
-                                              <i class=" fa-solid fa-arrow-left"></i>
-                                              <span class="sr-only">Previous</span>
-                                          </a>
-                                      </li>
-                                      <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                      <li class="page-item active"><a class="page-link" href="#">3</a></li>
-                                      <li class="page-item"><a class="page-link" href="#">...</a></li>
-                                      <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                      <li class="page-item">
-                                          <a class="page-link" href="#" aria-label="Next">
-                                              <i class="fa-solid fa-arrow-right"></i>
-                                              <span class="sr-only">Next</span>
-                                          </a>
-                                      </li>
-                                  </ul>-->
-                </div>
-            </div>
-        <?php } ?>
-
-
-    </div>
-
-</section>
+        </div> <!-- container -->
+    </section>
+<?php } ?>
 <!-- ============================ Agency List End ================================== -->
 			
 
