@@ -66,11 +66,14 @@ $route['events'] = "Web/projects";
 $route['events/(:num)'] = "Web/projects/$1";
 $route['one_event/(:any)'] = "Web/one_project/$1";
 
-$route['careers'] = "Web/careers";
-$route['careers/(:num)'] = "Web/careers/$1";
-$route['one_career/(:any)'] = "Web/one_career/$1";
+$route['photos'] = "Web/photos";
+$route['photos/(:num)'] = "Web/photos/$1";
+$route['one_photo/(:any)'] = "Web/one_photo/$1";
 
 
+
+$route['videos'] = 'Web/videos';
+$route['videos/(:num)'] = "Web/videos/$1";
 
 $route['teachers'] = 'Web/teachers';
 $route['about_us'] = 'Web/about_us';

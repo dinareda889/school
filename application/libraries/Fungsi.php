@@ -39,6 +39,10 @@ class Fungsi{
     }
 
     public function company_about(){
+        $this->ci->load->model('About_us_m');
+        return $this->ci->About_us_m->listing();
+    }
+    public function company_stats(){
         $this->ci->load->model('Company_stats_m');
         return $this->ci->Company_stats_m->listing();
     }

@@ -67,7 +67,7 @@ if (isset($one_blog->comments) && (!empty($one_blog->comments))) {
                         </ol>
                         <div class="carousel-inner">
                             <?php if (isset($one_blog->imgs) && (!empty($one_blog->imgs))) {
-                                foreach ($one_blog->imgs as $img) {
+                                foreach ($one_blog->imgs as $key=> $img) {
                                     if (isset($img->image) && (!empty($img->image))) {
                                         $img_url = base_url() . 'uploads/news/' . $img->image;
                                     } else {
@@ -76,7 +76,10 @@ if (isset($one_blog->comments) && (!empty($one_blog->comments))) {
                                     }
 
                                     ?>
-                                    <div class="carousel-item active">
+                                    <div class="carousel-item <?php
+                                    if ($key == 0) {
+                                        echo 'active';
+                                    } ?>">
                                         <img class="d-block w-100" src="<?= $img_url ?>" alt="First slide">
                                     </div>
                                 <?php }

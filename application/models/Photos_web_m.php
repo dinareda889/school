@@ -256,4 +256,50 @@ class Photos_web_m extends CI_Model
         }
         return false;
     }
+
+    public function get_count($where_arr)
+    {
+        if (!empty($where_arr)) {
+            $this->db->where($where_arr);
+        }
+        return $this->db->get("tbl_web_photos")->num_rows();
+    }
+    function get_all($where_arr = null, $limit = null, $start = 0)
+    {
+        $this->db->select('tbl_web_photos.*')->from('tbl_web_photos');
+        if (!empty($where_arr)) {
+            $this->db->where($where_arr);
+        }
+
+        if (!empty($limit)) {
+            $this->db->limit($limit, $start);
+        }
+        $events = $this->db->order_by('id', 'DESC')->get()->result();
+
+        /*        print_r($this->db->last_query());*/
+        if (!empty($events)) {
+            foreach ($events as $key => $event) {
+
+                $events[$key]->imgs = get_by('tbl_web_photos_images', array('photos_id_fk' => $event->id), 1);
+
+            }
+        }
+        return $events;
+    }
+    function get_one($where_arr)
+    {
+        $this->db->select('tbl_web_photos.*')->from('tbl_web_photos');
+        if (!empty($where_arr)) {
+            $this->db->where($where_arr);
+        }
+
+        $event = $this->db->get()->row();
+        if (!empty($event)) {
+
+            $event->imgs = get_by('tbl_web_photos_images', array('photos_id_fk' => $event->id));
+
+        }
+        return $event;
+    }
+
 }

@@ -165,7 +165,7 @@ function upload_image($file_name, $filepath = false)
     $CI->load->library('upload', $config);
     $CI->upload->initialize($config);
     if (!$CI->upload->do_upload($file_name)) {
-        log_message('error', 'Image Upload Error: ' . $CI->upload->display_errors());
+//        log_message('error', 'Image Upload Error: ' . $CI->upload->display_errors());
 //        echo $CI->upload->display_errors();
         return false;
     } else {

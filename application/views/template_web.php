@@ -56,7 +56,7 @@
     <?php if (($set_lang == 'english') || ($set_lang == 'russian')) { ?>
         <!--------------- english style -------->
         <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>styleen.css">
-    <?php }else{ ?>
+    <?php } else { ?>
         <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>style.css">
     <?php } ?>
 
@@ -85,7 +85,7 @@
                     <div class="header-contact text-lg-right text-center">
                         <ul>
                             <li><i class="fa fa-phone text-white" aria-hidden="true"></i>
-                                <span><?=$this->company_data->telepon_code?></span></li>
+                                <span><?= $this->company_data->telepon_code ?></span></li>
 
                         </ul>
                     </div>
@@ -95,7 +95,7 @@
                         <ul>
 
                             <li><i class="fa fa-envelope text-white" aria-hidden="true"></i>
-                                <span><?=$this->company_data->email?>"></span></li>
+                                <span><?= $this->company_data->email ?></span></li>
 
                         </ul>
                     </div>
@@ -106,7 +106,7 @@
                         <ul>
 
                             <li><i class="fa fa-map-marker text-white" aria-hidden="true"></i>
-                                <span><?=$this->company_data->$address?></span></li>
+                                <span><?= $this->company_data->$address ?></span></li>
                         </ul>
                     </div>
                 </div>
@@ -136,41 +136,53 @@
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto mr-auto">
 
-                                <li class="nav-item <?= $this->uri->segment(1) == 'Web' || $this->uri->segment(1) == '' ? "active" : '' ?>">
-                                    <a href="<?= base_url() ?>"><?= translate_web('Home') ?></a></li>
+                                <li class="nav-item ">
+                                    <a class="<?= $this->uri->segment(1) == 'Web' || $this->uri->segment(1) == '' ? "active" : '' ?>"
+                                       href="<?= base_url() ?>"><?= translate_web('Home') ?></a></li>
 
-                                <li class="nav-item <?= $this->uri->segment(1) == 'about_us' ? "active" : '' ?>"><a
-                                            href="<?= base_url() ?>about_us"><?= translate_web('About') ?></a></li>
+                                <li class="nav-item ">
+                                    <a class="<?= $this->uri->segment(1) == 'about_us' ? "active" : '' ?>"
+                                       href="<?= base_url() ?>about_us"><?= translate_web('About') ?></a></li>
 
-                                <li class="nav-item <?= $this->uri->segment(1) == 'teachers' ? "active" : '' ?>"><a
-                                            href="<?= base_url() ?>teachers"><?= translate_web('teachers') ?></a></li>
-<!--                                <li class="nav-item"><a href="teachers.html">المعلمين</a></li>-->
-                                <li class="nav-item"><a href="gallery.html">معرض الصور</a></li>
+                                <li class="nav-item ">
+                                    <a class="<?= $this->uri->segment(1) == 'teachers' ? "active" : '' ?>"
+                                       href="<?= base_url() ?>teachers"><?= translate_web('teachers') ?></a></li>
+                                <!--                                <li class="nav-item"><a href="teachers.html"><?= translate_web('teachers') ?></a></li>-->
+                                <li class="nav-item">
+                                    <a class="<?= $this->uri->segment(1) == 'photos' ? "active" : '' ?>"
+                                       href="<?= base_url() ?>photos"><?= translate_web('photos') ?></a></li>
 
-                                <li class="nav-item"><a href="videos.html">الفيديوهات</a></li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url() ?>videos"><?= translate_web('videos') ?></a></li>
 
-                                <li class="nav-item <?= $this->uri->segment(1) == 'events' || $this->uri->segment(1) == 'one_event' ? "active" : '' ?>">
-                                    <a href="<?= base_url() ?>events"><?= translate_web('events') ?></a></li>
+                                <li class="nav-item ">
+                                    <a class="<?= $this->uri->segment(1) == 'events' || $this->uri->segment(1) == 'one_event' ? "active" : '' ?>"
+                                       href="<?= base_url() ?>events"><?= translate_web('events') ?></a></li>
 
-                                <li class="nav-item <?= $this->uri->segment(1) == 'blogs' || $this->uri->segment(1) == 'one_blogs' ? "active" : '' ?>">
-                                    <a href="<?= base_url() ?>blogs"><?= translate_web('Blog') ?></a></li>
+                                <li class="nav-item ">
+                                    <a class="<?= $this->uri->segment(1) == 'blogs' || $this->uri->segment(1) == 'one_blogs' ? "active" : '' ?>"
+                                       href="<?= base_url() ?>blogs"><?= translate_web('Blog') ?></a></li>
 
-                                <li class="nav-item <?= $this->uri->segment(1) == 'contact_us' ? "active" : '' ?>"><a
-                                            href="<?= base_url() ?>contact_us"><?= translate_web('Contact_Us') ?></a>
+                                <li class="nav-item ">
+                                    <a class="<?= $this->uri->segment(1) == 'contact_us' ? "active" : '' ?>"
+                                       href="<?= base_url() ?>contact_us"><?= translate_web('Contact_Us') ?></a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <?php if($set_lang == 'english' ){ ?>
-                                <a href="<?php echo base_url() . 'LanguageSwitcher/switchLang/arabic' ?>">
-                                    <img src="<?= base_url() . 'assets_web/' ?>images/united-arab-emirates.png" class="lang">
-                                    <?=translate_web('Arabic')?></a>
-                                <?php }elseif ($set_lang == 'arabic') { ?>
-                                    <a href="<?php echo base_url() . 'LanguageSwitcher/switchLang/english' ?>">
-                                        <img src="<?= base_url() . 'assets_web/' ?>images/united-states.png" class="lang">
-                                        <?=translate_web('English')?></a>
-                                <?php } ?>
+                                    <?php if ($set_lang == 'english') { ?>
+                                        <a href="<?php echo base_url() . 'LanguageSwitcher/switchLang/arabic' ?>">
+                                            <img src="<?= base_url() . 'assets_web/' ?>images/united-arab-emirates.png"
+                                                 class="lang">
+                                            <?= translate_web('Arabic') ?></a>
+                                    <?php } elseif ($set_lang == 'arabic') { ?>
+                                        <a href="<?php echo base_url() . 'LanguageSwitcher/switchLang/english' ?>">
+                                            <img src="<?= base_url() . 'assets_web/' ?>images/united-states.png"
+                                                 class="lang">
+                                            <?= translate_web('English') ?></a>
+                                    <?php } ?>
 
-<!--                                    <a href="indexen.html"><img src="--><?//= base_url() . 'assets_web/' ?><!--images/united-states.png" class="lang"> EN </a>-->
+                                    <!--                                    <a href="indexen.html"><img src="-->
+                                    <? //= base_url() . 'assets_web/' ?><!--images/united-states.png" class="lang"> EN </a>-->
                                 </li>
 
                             </ul>
@@ -198,63 +210,110 @@ unset($_SESSION['message']);
     <div class="footer-top pt-20 pb-40">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 mt-40">
+                <div class="col-lg col-md-6 mt-40">
+
+                    <?php if ($this->fungsi->company_about() && (!empty($this->fungsi->company_about()))) {
+                        $about = $this->fungsi->company_about();
+                        if ($set_lang == 'english') {
+                            $about_us_short = $about->about_us_short_en;
+
+                        } elseif ($set_lang == 'russian') {
+                            $about_us_short = $about->about_us_short_en;
+
+                        } else {
+                            $about_us_short = $about->about_us_short;
+
+                        }
+                    } else {
+                        $about_us_short = 'المدرسة';
+                    }
+                    ?>
                     <div class="footer-about">
                         <div class="logo">
                             <a href="index.html"><img src="<?= base_url() . 'assets_web/images/' ?>logo-footer.png"
                                                       alt="Logo"></a>
                         </div>
-                        <p> تعتبر مدرستنا من المدارس الرائدة فى مجال التعليم حيث تم تأسسها منذ 40 عام ومنذ ذلك الوقت وهى
-                            تسعى لتقديم محتوى تعليمى متميز على مختلف المراحل التعليمية</p>
-
+                        <p><?= $about_us_short ?></p>
+<?php if (isset($this->company_data) && (!empty($this->company_data))) { ?>
                         <ul class="mt-20">
-                            <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="<?=$this->company_data->facebook?>"><i class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="<?=$this->company_data->twitter?>"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="<?=$this->company_data->youtube?>"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="<?=$this->company_data->google_plus?>"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="<?=$this->company_data->snapchat?>"><i class="fa fa-snapchat"></i></a></li>
                         </ul>
+                        <?php } ?>
                     </div> <!-- footer about -->
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 mt-40">
+                <div class="col-lg col-md-6 col-sm-6 mt-40">
                     <div class="footer-link">
                         <div class="footer-title pb-25">
-                            <h6>القائمة الرئيسية</h6>
+                            <h6><?= translate_web('main_list') ?></h6>
                         </div>
                         <ul>
-                            <li><a href="about.html"><i class="fa fa-angle-left"></i>من نحن</a></li>
-                            <li><a href="teachers.html"><i class="fa fa-angle-left"></i>المعلمين </a></li>
-                            <li><a href="gallery.html"><i class="fa fa-angle-left"></i>معرض الصور </a></li>
-                            <li><a href="videos.html"><i class="fa fa-angle-left"></i>الفيديوهات </a></li>
-                            <li><a href="news.html"><i class="fa fa-angle-left"></i>الأخبار</a></li>
-                            <li><a href="events.html"><i class="fa fa-angle-left"></i>الأيفنتات</a></li>
-                            <li><a href="contact.html"><i class="fa fa-angle-left"></i>إتصل بنا</a></li>
+                            <li><a href="<?= base_url() ?>about_us"><i
+                                            class="fa fa-angle-left"></i><?= translate_web('About') ?></a></li>
+                            <li><a href="<?= base_url() ?>teachers"><i
+                                            class="fa fa-angle-left"></i><?= translate_web('teachers') ?> </a></li>
+                            <li><a href="<?= base_url() ?>photos"><i
+                                            class="fa fa-angle-left"></i><?= translate_web('photos') ?> </a></li>
+                            <li><a href="<?= base_url() ?>videos"><i
+                                            class="fa fa-angle-left"></i><?= translate_web('videos') ?> </a></li>
+                            <li><a href="<?= base_url() ?>blogs"><i
+                                            class="fa fa-angle-left"></i><?= translate_web('Blog') ?></a></li>
+                            <li><a href="<?= base_url() ?>events"><i
+                                            class="fa fa-angle-left"></i><?= translate_web('events') ?></a></li>
+                            <li><a href="<?= base_url() ?>contact_us"><i
+                                            class="fa fa-angle-left"></i><?= translate_web('Contact_Us') ?></a></li>
                         </ul>
 
 
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6 mt-40">
+                <div class="col-lg col-md-6 mt-40">
                     <div class="footer-address">
                         <div class="footer-title pb-25">
-                            <h6>اتصل بنا</h6>
-                        </div>
+                            <h6><?= translate_web('Contact_Us') ?></h6>
+                        </div> <?php if (isset($this->company_data->address) && (!empty($this->company_data->address))) {
+                            if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
+                                switch ($_SESSION['site_lang']) {
+                                    case 'arabic':
+                                        $address = 'address';
+                                        break;
+                                    case 'english':
+                                        $address = 'address_en';
+                                        break;
+                                    case 'russian':
+                                        $address = 'address_ru';
+                                        break;
+                                    default:
+                                        $address = 'address_en';
+                                        break;
+                                }
+                            }
+                        }
+                        ?>
+
                         <ul>
-                            <li>
-                                <div class="icon">
-                                    <i class="fa fa-home"></i>
-                                </div>
-                                <div class="cont">
-                                    <p>الامارات العربية المتحدة </p>
-                                </div>
-                            </li>
+                            <?php if (!empty($this->company_data->$address)) { ?>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-home"></i>
+                                    </div>
+                                    <div class="cont">
+                                        <p><?= $this->company_data->$address ?> </p>
+                                    </div>
+                                </li>
+                            <?php } ?>
                             <li>
                                 <div class="icon">
                                     <i class="fa fa-phone"></i>
                                 </div>
                                 <div class="cont">
-                                    <p><a href="tel:009716507504510">009716507504510</a></p>
+                                    <p>
+                                        <a href="tel:<?= $this->company_data->telepon_code ?>"><?= $this->company_data->telepon_code ?></a>
+                                    </p>
                                 </div>
                             </li>
 
@@ -263,7 +322,9 @@ unset($_SESSION['message']);
                                     <i class="fa fa-envelope-o"></i>
                                 </div>
                                 <div class="cont">
-                                    <p><a href="tel:info@domain.com">info@domain.com</a></p>
+                                    <p>
+                                        <a href="tel:<?= $this->company_data->email ?>"><?= $this->company_data->email ?></a>
+                                    </p>
 
                                 </div>
                             </li>
@@ -271,21 +332,21 @@ unset($_SESSION['message']);
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6 col-sm-6 mt-40">
-                    <div class="footer-link support">
-                        <div class="footer-title pb-25">
-                            <h6>اشترك معنا</h6>
-                        </div>
-                        <p class="mb-20 text-white">اشترك معنا للحصول على احدث الأخبار</p>
-                        <div class="footer-subscribe">
-                            <form action="#" method="post">
-                                <input type="email" placeholder="اكتب البريد الالكترونى" required>
-                                <button type="submit"><i class="fa fa-envelope"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <!--                <div class="col-lg-3 col-md-6 col-sm-6 mt-40">
+                                    <div class="footer-link support">
+                                        <div class="footer-title pb-25">
+                                            <h6>اشترك معنا</h6>
+                                        </div>
+                                        <p class="mb-20 text-white">اشترك معنا للحصول على احدث الأخبار</p>
+                                        <div class="footer-subscribe">
+                                            <form action="#" method="post">
+                                                <input type="email" placeholder="اكتب البريد الالكترونى" required>
+                                                <button type="submit"><i class="fa fa-envelope"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                -->            </div>
         </div>
     </div>
 

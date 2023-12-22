@@ -47,14 +47,14 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="singel-teachers mt-30 text-center">
                             <div class="image">
-                                <a href="teachers-details.html"> <img src="<?php if (!empty($row->image) && (file_exists('uploads/team/'.$row->image))) {
+                                <a href="javascript:void (0)"> <img src="<?php if (!empty($row->image) && (file_exists('uploads/team/'.$row->image))) {
                                         echo base_url() . "uploads/team/" .$row->image;
                                     } else {
                                         echo base_url() . 'uploads/defult_image.jpg';
                                     } ?>" alt="Teachers"></a>
                             </div>
                             <div class="cont">
-                                <a href="teachers-details.html"><h6><?=$row->$name?></h6></a>
+                                <a href="javascript:void (0)"><h6><?=$row->$name?></h6></a>
                                 <span><?=$row->$job_title?></span>
                             </div>
                         </div>

@@ -166,42 +166,38 @@
     </div>
 </section>
 
+<?php if ($this->fungsi->company_stats() && (!empty($this->fungsi->company_stats()))) {
+    $company_stats = $this->fungsi->company_stats(); ?>
+    <!--====== الاحصائيات ======-->
+    <div class="bg_cover pt-110 pb-110 direction" data-overlay="8"
+         style="background-image: url(<?= base_url() . 'assets_web/images/' ?>baner/img3.jpg)" data-aos="fade-up"
+         data-aos-easing="linear" data-aos-duration="900">
+        <div class="container">
 
-<!--====== الاحصائيات ======-->
-<div class="bg_cover pt-110 pb-110 direction" data-overlay="8"
-     style="background-image: url(<?= base_url() . 'assets_web/images/' ?>baner/img3.jpg)" data-aos="fade-up"
-     data-aos-easing="linear" data-aos-duration="900">
-    <div class="container">
+            <div class="row">
+                <?php foreach ($company_stats as $company_stat) {
+                    if ($set_lang == 'english') {
+                        $title = $company_stat->title_en;
 
-        <div class="row">
-            <div class="col-lg-3 col-sm-6">
-                <div class="singel-counter text-center mt-40">
-                    <span><span class="counter">1000</span> </span>
-                    <p>عدد الطلبة</p>
-                </div> <!-- singel counter -->
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="singel-counter text-center mt-40">
-                    <span><span class="counter">100</span> </span>
-                    <p>عدد الفصول</p>
-                </div> <!-- singel counter -->
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="singel-counter text-center mt-40">
-                    <span><span class="counter">200</span> </span>
-                    <p>عدد المعلمين</p>
-                </div> <!-- singel counter -->
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="singel-counter text-center mt-40">
-                    <span><span class="counter">40</span></span>
-                    <p>عدد سنوات الخبرة</p>
-                </div> <!-- singel counter -->
-            </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
-</div>
+                    }  else {
+                        $title = $company_stat->title;
 
+                    }
+                    ?>
+                    <div class="col-lg col-sm-6">
+                        <div class="singel-counter text-center mt-40">
+                            <span><span class="counter"><?=$company_stat->number?></span> </span>
+                            <p><?=$title?></p>
+                        </div> <!-- singel counter -->
+                    </div>
+                <?php } ?>
+
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div>
+    <?php
+}
+?>
 
 <!--====== المواد العلمية ======-->
 <!--<section   class="subject pt-60 pb-60"  data-aos="fade-down" data-aos-easing="linear" data-aos-duration="900">
@@ -363,11 +359,15 @@
                                 <span><i class="fa fa-clock-o"></i> <?= $row->from_time ?> - <?= $row->to_time ?></span>
                                 <span><i class="fa fa-map-marker"></i> <?= $row->location ?></span>
                                 <p class="fnt"><?php if ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'english')) {
-                                        echo $row->description_en;
+                                        echo word_limiter(strip_tags($row->description_en), 30, '...');
                                     } elseif ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'russian')) {
-                                        echo $row->description_ru;
+//                                        echo $row->description_ru;
+                                        echo word_limiter(strip_tags($row->description_ru), 30, '...');
+
                                     } else {
-                                        echo $row->description_ar;
+//                                        echo $row->description_ar;
+                                        echo word_limiter(strip_tags($row->description_ar), 30, '...');
+
                                     }
                                     ?> </p>
                             </div>
@@ -387,127 +387,71 @@
 
 <?php if (isset($blogs) && (!empty($blogs))) { ?>
 
-<!--====== اخر الاخبار ======-->
-<section id="news-part" class="pt-90 pb-90 direction" data-aos="fade-down" data-aos-easing="linear"
-         data-aos-duration="900">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="section-title pb-50">
-                    <h5><?= translate_web('Our_Blog') ?></h5>
-                    <h2><?= translate_web('Our_Blog_title') ?></h2>
-                </div> <!-- section title -->
-            </div>
-        </div> <!-- row -->
-        <div class="row">
-            <?php
-            if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
-                switch ($_SESSION['site_lang']) {
-                    case 'arabic':
-                        $product_name = 'name_ar';
-                        $product_description = 'description_ar';
-                        break;
-                    case 'english':
-                        $product_name = 'name_en';
-                        $product_description = 'description_en';
-                        break;
-                    case 'russian':
-                        $product_name = 'name_ru';
-                        $product_description = 'description_ru';
-                        break;
-                    default:
-                        $product_name = 'name_en';
-                        $product_description = 'description_en';
-                        break;
-                }
-            }
-            foreach ($blogs as $blog) {
-                ?>
-
+    <!--====== اخر الاخبار ======-->
+    <section id="news-part" class="pt-90 pb-90 direction" data-aos="fade-down" data-aos-easing="linear"
+             data-aos-duration="900">
+        <div class="container">
+            <div class="row">
                 <div class="col-lg-6">
-                    <div class="singel-news mt-30">
-                        <div class="news-thum pb-25">
-                            <img src="<?= base_url() . 'assets_web/images/' ?>news/img1.jpg" alt="News">
-                        </div>
-                        <div class="news-cont">
-                            <ul>
-                                <li><a><i class="fa fa-calendar"></i>6-11-2023 </a></li>
-                                <li><a> <i class="fa fa-calendar"></i> احمد حسن</a></li>
-                            </ul>
-                            <a href="news-details.html"><h3>هذا العنوان تجريبى ويمكن حذفه</h3></a>
-                            <p>التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل
-                                التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل
-                                التفاصيل
-                                التفاصيل التفاصيل التفاصيل التفاصيل </p>
-                        </div>
-                    </div> <!-- singel news -->
+                    <div class="section-title pb-50">
+                        <h5><?= translate_web('Our_Blog') ?></h5>
+                        <h2><?= translate_web('Our_Blog_title') ?></h2>
+                    </div> <!-- section title -->
                 </div>
-            <?php } ?>
-            <div class="col-lg-6">
-                <div class="singel-news news-list">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="news-thum mt-30">
-                                <img src="<?= base_url() . 'assets_web/images/' ?>news/img2.jpg" alt="News">
+            </div> <!-- row -->
+            <div class="row">
+                <?php
+                if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
+                    switch ($_SESSION['site_lang']) {
+                        case 'arabic':
+                            $product_name = 'name_ar';
+                            $product_description = 'description_ar';
+                            break;
+                        case 'english':
+                            $product_name = 'name_en';
+                            $product_description = 'description_en';
+                            break;
+                        case 'russian':
+                            $product_name = 'name_ru';
+                            $product_description = 'description_ru';
+                            break;
+                        default:
+                            $product_name = 'name_en';
+                            $product_description = 'description_en';
+                            break;
+                    }
+                }
+                foreach ($blogs as $blog) {
+                    if (isset($blog->image) && (!empty($blog->image))) {
+                        $img_url = base_url() . 'uploads/news/' . $blog->image;
+                    } else {
+                        $img_url = base_url() . 'assets_web/images/news/img2.jpg';
+                    }
+
+                    ?>
+
+                    <div class="col-lg-6">
+                        <div class="singel-news mt-30">
+                            <div class="news-thum pb-25">
+                                <img src="<?= $img_url ?>" alt="News">
                             </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="news-cont mt-30">
+                            <div class="news-cont">
                                 <ul>
-                                    <li><a><i class="fa fa-calendar"></i>6-11-2023 </a></li>
-                                    <li><a> <i class="fa fa-calendar"></i> احمد حسن</a></li>
+                                    <li>
+                                        <a><i class="fa fa-calendar"></i><?= date('y-m-d', strtotime($blog->publish_date)) ?>
+                                        </a></li>
+                                    <!--                                <li><a> <i class="fa fa-calendar"></i> احمد حسن</a></li>-->
                                 </ul>
-                                <a href="news-details.html"><h3>هذا العنوان تجريبى ويمكن حذفه</h3></a>
-                                <p>التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل
-                                    التفاصيل التفاصيل</p>
+                                <a href="<?= base_url() . 'one_blog/' . base64_encode($blog->id) ?>">
+                                    <h3><?= $blog->$name ?></h3></a>
+                                <p><?= word_limiter(strip_tags($blog->$description), 60, '...') ?></p>
                             </div>
-                        </div>
-                    </div> <!-- row -->
-                </div> <!-- singel news -->
-                <div class="singel-news news-list">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="news-thum mt-30">
-                                <img src="<?= base_url() . 'assets_web/images/' ?>news/img3.jpg" alt="News">
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="news-cont mt-30">
-                                <ul>
-                                    <li><a><i class="fa fa-calendar"></i>6-11-2023 </a></li>
-                                    <li><a> <i class="fa fa-calendar"></i> احمد حسن</a></li>
-                                </ul>
-                                <a href="news-details.html"><h3>هذا العنوان تجريبى ويمكن حذفه</h3></a>
-                                <p>التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل
-                                    التفاصيل التفاصيل</p>
-                            </div>
-                        </div>
-                    </div> <!-- row -->
-                </div> <!-- singel news -->
-                <div class="singel-news news-list">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="news-thum mt-30">
-                                <img src="<?= base_url() . 'assets_web/images/' ?>news/img4.jpg" alt="News">
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="news-cont mt-30">
-                                <ul>
-                                    <li><a><i class="fa fa-calendar"></i>6-11-2023 </a></li>
-                                    <li><a> <i class="fa fa-calendar"></i> احمد حسن</a></li>
-                                </ul>
-                                <a href="news-details.html"><h3>هذا العنوان تجريبى ويمكن حذفه</h3></a>
-                                <p>التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل التفاصيل
-                                    التفاصيل التفاصيل</p>
-                            </div>
-                        </div>
-                    </div> <!-- row -->
-                </div> <!-- singel news -->
-            </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
-</section>
+                        </div> <!-- singel news -->
+                    </div>
+                <?php } ?>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </section>
 <?php } ?>
 
 <!--====== شركاؤنا ======-->

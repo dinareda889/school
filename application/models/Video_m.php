@@ -115,5 +115,36 @@ class Video_m extends CI_Model
         $query = $this->db->get();
         return $query->row();
     }
+
+
+    public function get_count($where_arr)
+    {
+        if (!empty($where_arr)) {
+            $this->db->where($where_arr);
+        }
+        return $this->db->get("tbl_video")->num_rows();
+    }
+    function get_all($where_arr = null, $limit = null, $start = 0)
+    {
+        $this->db->select('tbl_video.*')->from('tbl_video');
+        if (!empty($where_arr)) {
+            $this->db->where($where_arr);
+        }
+
+        if (!empty($limit)) {
+            $this->db->limit($limit, $start);
+        }
+        $data = $this->db->order_by('id', 'DESC')->get()->result();
+
+        /*        print_r($this->db->last_query());*/
+        /*if (!empty($data)) {
+            foreach ($data as $key => $event) {
+
+                $data[$key]->imgs = get_by('tbl_web_photos_images', array('photos_id_fk' => $event->id), 1);
+
+            }
+        }*/
+        return $data;
+    }
 }
 ?>
