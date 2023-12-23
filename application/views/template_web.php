@@ -10,9 +10,22 @@
     if ($this->fungsi->company_data()->image) {
         $company_image = base_url('uploads/main/' . $this->fungsi->company_data()->image);
     } else {
-        $company_image = base_url('assets/dist/img/AdminLTELogo.png');
+        $company_image = base_url('assets_web/images/logo.png');
     }
-
+    switch ($_SESSION['site_lang']) {
+        case 'arabic':
+            $address = 'address';
+            break;
+        case 'english':
+            $address = 'address_en';
+            break;
+        case 'russian':
+            $address = 'address_ru';
+            break;
+        default:
+            $address = 'address_en';
+            break;
+    }
     if ($this->fungsi->company_data()->nameweb) {
 
         if ($set_lang == 'english') {
@@ -121,8 +134,8 @@
             <div class="row no-gutters">
                 <div class="col-lg-12 col-md-12">
                     <nav class="navbar navbar-expand-lg">
-                        <a class="navbar-brand" href="index.html">
-                            <img src="<?= base_url() . 'assets_web/images/' ?>logo.png" alt="Logo">
+                        <a class="navbar-brand" href="<?= base_url() ?>">
+                            <img src="<?= $company_image ?>" alt="Logo">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -230,7 +243,7 @@ unset($_SESSION['message']);
                     ?>
                     <div class="footer-about">
                         <div class="logo">
-                            <a href="index.html"><img src="<?= base_url() . 'assets_web/images/' ?>logo-footer.png"
+                            <a href="<?= base_url() ?>"><img src="<?= $company_image ?>"
                                                       alt="Logo"></a>
                         </div>
                         <p><?= $about_us_short ?></p>
@@ -332,6 +345,17 @@ unset($_SESSION['message']);
                     </div>
                 </div>
 
+                <div class="col-lg col-md-6 col-sm-6 mt-40">
+                    <div class="footer-link support">
+                        <div class="footer-title pb-25">
+                            <h6><?= translate_web('location_map') ?></h6>
+                        </div>
+                        <div class="mapouter">
+                            <?=$this->company_data->google_map?>
+<!--                            <iframe width="100%" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D8%B4%D8%A7%D8%B1%D9%82%D8%A9&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>-->
+                        </div>
+                    </div>
+                </div>
                 <!--                <div class="col-lg-3 col-md-6 col-sm-6 mt-40">
                                     <div class="footer-link support">
                                         <div class="footer-title pb-25">
@@ -390,7 +414,7 @@ unset($_SESSION['message']);
 <script>
     AOS.init();
 </script>
-<script src="assets/js/main.js"></script>
+<!--<script src="assets/js/main.js"></script>-->
 <!-- share social -->
 <script>
     function fbShare(title, descr, winWidth, winHeight) {

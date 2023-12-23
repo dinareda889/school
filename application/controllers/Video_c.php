@@ -57,10 +57,18 @@ class Video_c extends CI_Controller
         $data = array();
         $no = @$_POST['start'];
         foreach ($list as $item) {
+            if (!empty($item->image) && (file_exists('uploads/video/' . $item->image))) {
+                $image = base_url() . 'uploads/video/' . $item->image;
+            } else {
+                $image = base_url() . 'uploads/defult_image.jpg';
+            }
             $no++;
             $row = array();
             $row[] = $no . ".";
+            $row[] = '<img src="' . $image . '"  height="100px" width="150px" alt="" class="direct-chat-img" />';
             $row[] = $item->date_ar;
+            $row[] = $item->title;
+            $row[] = $item->title_en;
             $row[] ='
  <a href="#modal_details" data-toggle="modal" title="'.translate('The_Video_Link').'" 
                         onclick="get_load_details('.$item->id.')" class="btn btn-warning btn-sm"> 
@@ -145,6 +153,11 @@ class Video_c extends CI_Controller
 
         $this->form_validation->set_rules('date',translate('The_Date'), 'required');
         $this->form_validation->set_rules('link', translate('Video_Link'), 'required|callback_check_youtube');
+        $this->form_validation->set_rules('title', translate('title').' '.translate('arabic'), 'required');
+        $this->form_validation->set_rules('title_en',translate('title').' '.translate('english'), 'required');
+        if (empty($_FILES['image']['name'])) {
+            $this->form_validation->set_rules('image', translate('main_image'), 'required');
+        }
         if ($this->form_validation->run() == FALSE) {
             $company_stats = new stdClass();
             $company_stats->id = null;
@@ -159,7 +172,8 @@ class Video_c extends CI_Controller
         } else {
             $post = $this->input->post(null, TRUE);
             if (isset($_POST['add'])) {
-                $this->Video_m->add_company_stats($post,$video_link=null);
+                $image = $this->upload_image("image", 'video');
+                $this->Video_m->add_company_stats($post,$video_link=null,$image);
                 if ($this->db->affected_rows() > 0) {
                     $this->session->set_flashdata('sukses',translate('Process_Done_Successfully'));
                 }
@@ -173,6 +187,8 @@ class Video_c extends CI_Controller
         $this->load->library('form_validation');
         $this->form_validation->set_rules('date',translate('The_Date'), 'required');
         $this->form_validation->set_rules('link', translate('Video_Link'), 'required|callback_check_youtube');
+        $this->form_validation->set_rules('title', translate('title').' '.translate('arabic'), 'required');
+        $this->form_validation->set_rules('title_en',translate('title').' '.translate('english'), 'required');
         if ($this->form_validation->run() == FALSE) {
             $query = $this->Video_m->get($id);
             if ($query->num_rows() > 0) {
@@ -189,7 +205,8 @@ class Video_c extends CI_Controller
             $post = $this->input->post(null, TRUE);
             if (isset($_POST['add'])) {
                 $video_link = null;
-                $this->Video_m->edit_company_stats($post,$video_link);
+                $image = $this->upload_image("image", 'video');
+                $this->Video_m->edit_company_stats($post,$video_link,$image);
             }
             if ($this->db->affected_rows() > 0) {
                 $this->session->set_flashdata('sukses',translate('Process_Done_Successfully'));

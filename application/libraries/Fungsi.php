@@ -38,6 +38,11 @@ class Fungsi{
         return $this->ci->Config_company_m->listing();
     }
 
+    public function banners(){
+        $this->ci->load->model('Banners_m');
+        return $this->ci->Banners_m->listing();
+    }
+
     public function company_about(){
         $this->ci->load->model('About_us_m');
         return $this->ci->About_us_m->listing();

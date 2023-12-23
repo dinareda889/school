@@ -156,11 +156,26 @@
                 </li>
             </ul>
         </li>
+
+        <li class="nav-item">
+            <a href="<?= site_url('Banners') ?>"
+               class="nav-link <?= $this->uri->segment(1) == 'Banners' ? "active" : '' ?> ">
+                <i class="nav-icon fas fa-image text-maroon"></i>
+                <p><?= translate('Banners') ?></p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="<?= site_url('Photos_web_c') ?>"
+               class="nav-link <?= $this->uri->segment(1) == 'Photos_web_c' ? "active" : '' ?> ">
+                <i class="nav-icon fas fa-images text-maroon"></i>
+                <p><?= translate('Photo_album') ?></p>
+            </a>
+        </li>
         <li class="nav-item">
             <a href="<?= site_url('Video_c') ?>"
                class="nav-link <?= $this->uri->segment(1) == 'Video_c' ? "active" : '' ?> ">
                 <i class="nav-icon fas fa-video text-maroon"></i>
-                <p><?= translate('Video_Banner') ?></p>
+                <p><?= translate('Video_album') ?></p>
             </a>
         </li>
         <li class="nav-item">
@@ -170,13 +185,13 @@
                 <p><?= translate('Employment_Management') ?></p>
             </a>
         </li>
-        <!-- <li class="nav-item">
-            <a href="<? /*=site_url('Client')*/ ?>"
-               class="nav-link <? /*=$this->uri->segment(1) == 'Client' ?  "active" : '' */ ?> ">
+        <li class="nav-item">
+            <a href="<?=site_url('Client')?>"
+               class="nav-link <?=$this->uri->segment(1) == 'Client' ?  "active" : ''?> ">
                 <i class="nav-icon fas fa-users text-success"></i>
-                <p>عملاء الشركة</p>
+                <p><?=translate('Our Partners')?></p>
             </a>
-        </li>-->
+        </li>
         <li class="nav-item">
             <a href="<?= site_url('Team') ?>"
                class="nav-link <?= $this->uri->segment(1) == 'Team' ? "active" : '' ?> ">
@@ -197,7 +212,7 @@
             <a href="<?= site_url('Project') ?>"
                class="nav-link <?= $this->uri->segment(1) == 'Project' ? "active" : '' ?> ">
                 <i class="nav-icon fas fa-list-ol text-success"></i>
-                <p><?= translate('Project') ?> </p>
+                <p><?= translate('Events') ?> </p>
             </a>
         </li>
 

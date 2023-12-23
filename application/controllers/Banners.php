@@ -164,7 +164,7 @@ class Banners extends CI_Controller {
 
             $post = $this->input->post(null, TRUE);
             if (isset($_POST['add'])) {
-                $image = $this->upload_image("image",'banners');
+                $image = upload_image("image",'banners');
                 $this->Banners_m->add_banners($post,$image);
                 if ($this->db->affected_rows() > 0) {
                     $this->session->set_flashdata('success', translate('Messages_success'));
@@ -197,7 +197,7 @@ class Banners extends CI_Controller {
         } else {
             $post = $this->input->post(null, TRUE);
             if (isset($_POST['add'])) {
-                $image = $this->upload_image("image",'banners');
+                $image = upload_image("image",'banners');
                 $this->Banners_m->edit_banners($post,$image);
             }
             if ($this->db->affected_rows() > 0) {

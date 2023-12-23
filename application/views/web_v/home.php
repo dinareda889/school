@@ -1,55 +1,52 @@
+<?php if ($this->fungsi->banners() && (!empty($this->fungsi->banners()))) {
+    $banners = $this->fungsi->banners();
+
+
+    if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
+        switch ($_SESSION['site_lang']) {
+            case 'arabic':
+                $description = 'description';
+                break;
+            case 'english':
+                $description = 'description_en';
+                break;
+
+            default:
+                $description = 'description_en';
+                break;
+        }
+    }
+    ?>
 <!--====== SLIDER ======-->
+
 <section id="slider-part" class="slider-active">
+    <?php foreach ($banners as $banner) {
+//                    print_r($supplier);
+//                    die();
+        if (isset($banner->image) && (!empty($banner->image))) {
+            $img_url = base_url() . 'uploads/banners/' . $banner->image;
+        } else {
+            $img_url =  base_url() . 'assets_web/images/baner/img1.jpg';
+        }
+        ?>
     <div class="single-slider bg_cover pt-150"
-         style="background-image: url(<?= base_url() . 'assets_web/images/' ?>baner/img1.jpg)" data-overlay="4">
+         style="background-image: url(<?= $img_url ?>)" data-overlay="4">
         <div class="container">
             <div class="row direction justify">
                 <div class="col-xl-6 col-lg-6">
                     <div class="slider-cont">
                         <h1 data-animation="bounceInLeft" data-delay="1s">مدرستنا دليلك للنجاح</h1>
-                        <p data-animation="fadeInUp" data-delay="1.3s">نسعى لتدريس مناهج متميزة على ايدى معلمين متميزين
-                            فى كافة المواد العلمية</p>
+                        <p data-animation="fadeInUp" data-delay="1.3s"><?=$banner->$description?></p>
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="single-slider bg_cover pt-150"
-         style="background-image: url(<?= base_url() . 'assets_web/images/' ?>baner/img2.jpg)" data-overlay="4">
-        <div class="container">
-            <div class="row direction justify">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="slider-cont">
-                        <h1 data-animation="bounceInLeft" data-delay="1s">مدرستنا تجعلك من الاوائل</h1>
-                        <p data-animation="fadeInUp" data-delay="1.3s">نسعى لتدريس مناهج متميزة على ايدى معلمين متميزين
-                            فى كافة المواد العلمية</p>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="single-slider bg_cover pt-150"
-         style="background-image: url(<?= base_url() . 'assets_web/images/' ?>baner/img3.jpg)" data-overlay="4">
-        <div class="container">
-            <div class="row direction justify">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="slider-cont">
-                        <h1 data-animation="bounceInLeft" data-delay="1s">مدرستنا دليلك للنجاح</h1>
-                        <p data-animation="fadeInUp" data-delay="1.3s">نسعى لتدريس مناهج متميزة على ايدى معلمين متميزين
-                            فى كافة المواد العلمية</p>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php } ?>
 
 </section>
-
+<?php } ?>
 <!--====== مميزات المدرسة ======-->
 <section class="video-feature bg_cover pt-60 pb-110 direction"
          style="background-image: url(<?= base_url() . 'assets_web/images/' ?>features.jpg)" data-aos="fade-down"
@@ -58,7 +55,12 @@
         <div class="row align-items-center">
             <div class="col-lg-6 order-last order-lg-first">
                 <div class="text-center pt-50">
-                    <a class="Video-popup" href="https://www.youtube.com/watch?v=KcUfkrprw4k"><i
+<?php if (isset($this->company_data) && (!empty($this->company_data))) {
+    $main_vido_link_id=$this->company_data->video;
+}else{
+    $main_vido_link_id="KcUfkrprw4k";
+} ?>
+                    <a class="Video-popup" href="https://www.youtube.com/watch?v=<?=$main_vido_link_id?>"><i
                                 class="fa fa-play video-i"></i></a>
                 </div> <!-- row -->
             </div>
@@ -176,18 +178,23 @@
 
             <div class="row">
                 <?php foreach ($company_stats as $company_stat) {
+                    if ($this->session->has_userdata('set_lang')) {
+                        $set_lang = $this->session->userdata('set_lang');
+                    } else {
+                        $set_lang = 'english';
+                    }
                     if ($set_lang == 'english') {
                         $title = $company_stat->title_en;
 
-                    }  else {
+                    } else {
                         $title = $company_stat->title;
 
                     }
                     ?>
                     <div class="col-lg col-sm-6">
                         <div class="singel-counter text-center mt-40">
-                            <span><span class="counter"><?=$company_stat->number?></span> </span>
-                            <p><?=$title?></p>
+                            <span><span class="counter"><?= $company_stat->number ?></span> </span>
+                            <p><?= $title ?></p>
                         </div> <!-- singel counter -->
                     </div>
                 <?php } ?>
@@ -453,51 +460,39 @@
         </div> <!-- container -->
     </section>
 <?php } ?>
+<?php if ($this->fungsi->suppliers() && (!empty($this->fungsi->suppliers()))) {
+    $suppliers = $this->fungsi->suppliers();
+   ?>
+    <!--====== شركاؤنا ======-->
+    <div class="patnar-logo pt-60 pb-60" style="background-image: url(<?= base_url() . 'assets_web/images/' ?>bg-7.png)"
+         data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-title pb-45">
+                        <h2><?= translate_web('suppliers') ?> </h2>
+                        <span class="line"></span>
+                    </div>
+                </div>
+            </div> <!-- row -->
+            <div class="row patnar-slied">
+                <?php foreach ($suppliers as $supplier) {
+//                    print_r($supplier);
+//                    die();
+                    if (isset($supplier->image) && (!empty($supplier->image))) {
+                        $img_url = base_url() . 'uploads/client/' . $supplier->image;
+                    } else {
+                        $img_url =  base_url() . 'assets_web/images/patnar-logo/p-1.png';
+                    }
+                    ?>
+                    <div class="col-lg-12">
+                        <div class="singel-patnar text-center mt-40">
+                            <img src="<?= $img_url?>" alt="Logo">
+                        </div>
+                    </div>
+                <?php } ?>
 
-<!--====== شركاؤنا ======-->
-<div class="patnar-logo pt-60 pb-60" style="background-image: url(<?= base_url() . 'assets_web/images/' ?>bg-7.png)"
-     data-aos="fade-up" data-aos-easing="linear" data-aos-duration="900">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="section-title pb-45">
-                    <h2>شركاؤنا </h2>
-                    <span class="line"></span>
-                </div>
-            </div>
-        </div> <!-- row -->
-        <div class="row patnar-slied">
-            <div class="col-lg-12">
-                <div class="singel-patnar text-center mt-40">
-                    <img src="<?= base_url() . 'assets_web/images/' ?>patnar-logo/p-1.png" alt="Logo">
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="singel-patnar text-center mt-40">
-                    <img src="<?= base_url() . 'assets_web/images/' ?>patnar-logo/p-2.png" alt="Logo">
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="singel-patnar text-center mt-40">
-                    <img src="<?= base_url() . 'assets_web/images/' ?>patnar-logo/p-3.png" alt="Logo">
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="singel-patnar text-center mt-40">
-                    <img src="<?= base_url() . 'assets_web/images/' ?>patnar-logo/p-4.png" alt="Logo">
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="singel-patnar text-center mt-40">
-                    <img src="<?= base_url() . 'assets_web/images/' ?>patnar-logo/p-2.png" alt="Logo">
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="singel-patnar text-center mt-40">
-                    <img src="<?= base_url() . 'assets_web/images/' ?>patnar-logo/p-3.png" alt="Logo">
-                </div>
-            </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
-</div> 
-   
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div>
+<?php } ?>

@@ -243,6 +243,15 @@ public function index() {
             $company_pdf= $this->upload_file("company_pdf");
             if(!empty($company_pdf)){ $data['company_pdf'] = $company_pdf; }
 
+            $link =  $i->post('video');
+            $video_id = explode("?v=", $link); // For videos like http://www.youtube.com/watch?v=...
+            if (empty($video_id[1]))
+                $video_id = explode("/v/", $link); // For videos like http://www.youtube.com/watch/v/..
+
+            $video_id = explode("&", $video_id[1]); // Deleting any other params
+            $video_id = $video_id[0];
+            $data['video'] = $video_id;
+
             $this->Config_company_m->edit($data);
            $this->session->set_flashdata('sukses',translate('Process_Done_Successfully'));
             redirect(base_url('Config_company'));

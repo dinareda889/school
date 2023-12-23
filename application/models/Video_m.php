@@ -1,8 +1,8 @@
 <?php
 class Video_m extends CI_Model
 {
-    var $column_order_groups = array(null, 'company_stats.date_ar','company_stats.link'); //set column field database for datatable orderable
-    var $column_search_groups = array('company_stats.date_ar','company_stats.link'); //set column field database for datatable searchable
+    var $column_order_groups = array(null, 'company_stats.image', 'company_stats.date_ar', 'company_stats.title', 'company_stats.title_en','company_stats.link'); //set column field database for datatable orderable
+    var $column_search_groups = array('company_stats.image', 'company_stats.date_ar', 'company_stats.title', 'company_stats.title_en','company_stats.link'); //set column field database for datatable searchable
     var $order_groups = array('company_stats.id' => 'desc');
     private function _get_datatables_query_company_stats()
     {
@@ -61,11 +61,14 @@ class Video_m extends CI_Model
         $query = $this->db->get();
         return $query;
     }
-    public function add_company_stats($post,$video_link)
+    public function add_company_stats($post,$video_link,$image = '')
     {
-        $params = [
+        $params =[
+            'image' => $image,
             'date' => strtotime($post['date']),
-            'date_ar' => $post['date']
+            'date_ar' => $post['date'],
+            'title' => $post['title'],
+            'title_en' => $post['title_en']
         ];
         $link =  $post['link'];
         $video_id = explode("?v=", $link); // For videos like http://www.youtube.com/watch?v=...
@@ -77,11 +80,13 @@ class Video_m extends CI_Model
         $params['video_link'] = $video_id;
         $this->db->insert('tbl_video', $params);
     }
-    public function edit_company_stats($post,$video_link)
+    public function edit_company_stats($post,$video_link,$image = '')
     {
         $params = [
             'date' => strtotime($post['date']),
-            'date_ar' => $post['date']
+            'date_ar' => $post['date'],
+              'title' => $post['title'],
+            'title_en' => $post['title_en']
         ];
         $link =  $post['link'];
         if(!empty($post['link'])){
@@ -98,6 +103,9 @@ class Video_m extends CI_Model
             $params['link_id'] = $video_id;
         }else{
             $params['video_link'] = $post['link'];
+        }
+        if (!empty($image)) {
+            $params['image'] = $image;
         }
         $this->db->where('id', $post['id']);
         $this->db->update('tbl_video', $params);

@@ -36,7 +36,7 @@
                 foreach ($videos as $video) {
 
                 if (isset($video->image) && (!empty($video->image))) {
-                    $img_url = base_url() . 'uploads/web/videos/' . $video->image;
+                    $img_url = base_url() . 'uploads/videos/' . $video->image;
                 } else {
                     $img_url = base_url() . 'assets_web/images/news/img1.jpg';
                 }

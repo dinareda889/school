@@ -206,27 +206,32 @@
                             </div></div>
                     </div>
                 <?php } ?>
-
                 <div class="form-group">
-                    <label><?=translate('About_Company_image')?><!--صورة عن الشركة--> </label>
-                    <?php if(!empty($site->about_image)){ ?>
+                    <label><?=translate('The_main_Video_Link')?></label>
+                    <a href="#modal_details" data-toggle="modal" title="<?=translate('The_Video_Link')?>">
+                        <i class="fa fa-eye"></i><?=translate('View_The_Link')?></a>
+                    <input type="text" name="video" value="https://www.youtube.com/watch?v=<?= $site->video ?>"  class="form-control"/>
+
+                </div>
+                <!--<div class="form-group">
+                    <label><?/*=translate('About_Company_image')*/?> </label>
+                    <?php /*if(!empty($site->about_image)){ */?>
                         <a data-toggle="modal" data-target="#myModal-view" style="color: #007bff;">
-                            <i class="fa fa-eye" title=" <?=translate('view')?>"></i><!--للإطلاع --><?=translate('view')?></a>
-                        <!-- modal view -->
+                            <i class="fa fa-eye" title=" <?/*=translate('view')*/?>"></i><?/*=translate('view')*/?></a>
                         <div class="modal fade" id="myModal-view" tabindex="-1"
                              role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog modal-xl" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
 
-                                        <h4 class="modal-title" id="myModalLabel"><?=translate('the_image')?></h4>
+                                        <h4 class="modal-title" id="myModalLabel"><?/*=translate('the_image')*/?></h4>
                                         <button type="button" class="close" data-dismiss="modal"
                                                 aria-label="Close"><span
                                                     aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <img  src="<?php if (!empty($site->about_image) && (file_exists('uploads/main/' . $site->about_image))) {
+                                        <img  src="<?php /*if (!empty($site->about_image) && (file_exists('uploads/main/' . $site->about_image))) {
 
                                             echo base_url() . 'uploads/main/' .$site->about_image;
 
@@ -234,28 +239,24 @@
 
                                             echo base_url() . 'uploads/defult_image.jpg';
 
-                                        } ?>" title="" height="100%" width="100%"/>
-
-                                        <!--<img
-                                             class="" style="width: -webkit-fill-available;" alt="">-->
+                                        } */?>" title="" height="100%" width="100%"/>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger"
                                                 data-dismiss="modal">
-                                            <?=translate('close')?>
+                                            <?/*=translate('close')*/?>
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- modal view -->
-                    <?php } ?>
+                    <?php /*} */?>
                     <div class="input-group">
                         <div class="custom-file">
                             <input type="file" name="about_image" accept="image/*"  class="form-control " />
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <!--<div class="form-group">
                     <label><?/*=translate('Company profile')*/?></label>
                     <?php /*if(!empty($site->company_pdf)){ */?>
@@ -326,5 +327,36 @@
         </div>
         </form>
 
+    </div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="modal_details" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+    <div class="modal-dialog modal_details modal-lg" role="document" style="width: 90%">
+        <div class="modal-content">
+            <div class="modal-header" style="direction: rtl!important;">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title"><?=translate('The_Video_Link')?></h4>
+
+            </div>
+
+            <div class="modal-body">
+                <div id="details">
+                    <div class="row">
+                        <iframe width="100%" height="100%"
+                                src="https://www.youtube.com/embed/<?=$site->video?>">
+                        </iframe>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer" style=" display: inline-block;width: 100%;">
+                <button type="button" class="btn btn-danger"
+                        data-dismiss="modal"><?=translate('Close')?>
+                </button>
+            </div>
+        </div>
     </div>
 </div>

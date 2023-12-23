@@ -105,7 +105,20 @@ class Banners_m extends CI_Model
         $this->db->where('banner_id',$banner_id);
         $this->db->delete('tbl_banners');
     }
-   
+
+    public function listing()
+    {
+        $this->db->select('tbl_banners.*');
+
+        $this->db->from('tbl_banners');
+
+        $this->db->order_by('banner_id', 'desc');
+
+        $query = $this->db->get();
+
+        return $query->result();
+
+    }
 
 }
 ?>
