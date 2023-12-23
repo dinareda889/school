@@ -47,6 +47,11 @@ class Fungsi{
         return $this->ci->Company_stats_m->listing();
     }
 
+    public function suppliers(){
+        $this->ci->load->model('Client_m');
+        return $this->ci->Client_m->listing();
+    }
+
 
     public function count_api_users($status){
         $this->ci->load->model('User_m');
