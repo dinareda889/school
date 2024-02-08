@@ -159,19 +159,14 @@ class About_us_m extends CI_Model
         $params = [
             'our_vision' => $post['our_vision'],
             'our_vision_en' => $post['our_vision_en'],
-            'our_vision_ru' => $post['our_vision_ru'],
             'our_mission' => $post['our_mission'],
             'our_mission_en' => $post['our_mission_en'],
-            'our_mission_ru' => $post['our_mission_ru'],
             'our_goals' => $post['our_goals'],
             'our_goals_en' => $post['our_goals_en'],
-            'our_goals_ru' => $post['our_goals_ru'],
             'about_us' => $post['about_us'],
             'about_us_en' => $post['about_us_en'],
-            'about_us_ru' => $post['about_us_ru'],
             'about_us_short' => $post['about_us_short'],
-            'about_us_short_en' => $post['about_us_short_en'],
-            'about_us_short_ru' => $post['about_us_short_ru']
+            'about_us_short_en' => $post['about_us_short_en']
         ];
 
         $this->db->where('id', $post['id']);

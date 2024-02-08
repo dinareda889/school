@@ -210,6 +210,7 @@ public function index() {
             $data['snapchat'] = $i->post('snapchat');
             $data['tiktok'] = $i->post('tiktok');
             $data['google_map'] = $i->post('google_map');
+            $data['registration_link'] = $i->post('registration_link');
             $data['id_user'] = $this->session->userdata('id');
 
            /* if($i->post('image') != null){

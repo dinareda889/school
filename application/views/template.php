@@ -217,7 +217,7 @@
                 $this->load->view('sides/super');
                 ?>
             <?php } elseif ($_SESSION['level'] == 2) {
-                 $this->load->view('sides/agent');
+                 $this->load->view('sides/super');
             } else {
             }
             ?>

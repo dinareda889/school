@@ -1,8 +1,7 @@
 <!--====== PAGE BANNER PART START ======-->
 
-<section id="page-banner" class="pt-120 pb-120 bg_cover" data-overlay="8"
-         style="background-main_image: url(<?= base_url() . 'assets_web/' ?>images/page-baner/terms.jpg)">
-    <div class="container">
+<section id="page-banner" class="pt-120 pb-120 bg_cover" data-overlay="8" style="background-image: url(<?= base_url() . 'assets_web/' ?>images/page-baner/log.jpg)">
+      <div class="container">
         <div class="row direction">
             <div class="col-lg-12">
                 <div class="page-banner-cont">

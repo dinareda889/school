@@ -5,7 +5,7 @@
         <div class="row direction">
             <div class="col-lg-12">
                 <div class="page-banner-cont">
-                    <h2><?= translate_web('Our_project') ?>  </h2>
+                    <h2><?= translate_web('Our_events') ?>  </h2>
                 </div>
             </div>
         </div>
@@ -43,14 +43,15 @@
                             break;
                     }
                 }
-                if (isset($project->image) && (!empty($project->image))) {
-                    $img_url = base_url() . 'uploads/project/thumbs/' . $project->image;
-                } else {
-                    $img_url = base_url() . 'assets_web/img/p-1.jpg';
 
-                }
 
                 foreach ($projects as $project) {
+                    if (isset($project->image) && (!empty($project->image))) {
+                        $img_url = base_url() . 'uploads/project/thumbs/' . $project->image;
+                    } else {
+                        $img_url = base_url() . 'assets_web/img/p-1.jpg';
+
+                    }
                     ?>
                     <div class="col-lg-6">
                         <div class="singel-event-list mt-30">

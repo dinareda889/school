@@ -38,7 +38,7 @@
                   <div class="blog-details mt-30">
                         <div class="cont">
 
-                          <h3><?= $photo->$name ?></h3>
+                          <h3><?= $one_photo->$name ?></h3>
                       </div> <!-- cont -->
                       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" dir="rtl">
   <ol class="carousel-indicators">

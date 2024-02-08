@@ -141,7 +141,7 @@ class Photos_web_m extends CI_Model
         $data['slug_title'] =$this->create_unique_slug_ar($this->input->post('title'));
         $data['slug_title_en'] =$this->create_unique_slug_ar($this->input->post('title_en'));
 
-        $data['publisher']=$_SESSION['user_name'];
+        $data['publisher']=$_SESSION['name'];
 
         $this->db->insert('tbl_web_photos',$data);
         return $this->db->insert_id();

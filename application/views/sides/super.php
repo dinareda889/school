@@ -34,6 +34,7 @@
 
             </ul>
         </li>-->
+        <?php if($_SESSION['level'] == 1){?>
         <li class="nav-item has-treeview  <?= $this->uri->segment(1) == 'User' ?
             "menu-open " : '' ?> ">
             <a href="#" class="nav-link <?= $this->uri->segment(1) == 'User' ?
@@ -57,6 +58,7 @@
                 </li>
             </ul>
         </li>
+        <?php }?>
         <li class="nav-item has-treeview  <?= $this->uri->segment(1) == 'Config_company' ?
             "menu-open " : '' ?> ">
             <a href="#" class="nav-link <?= $this->uri->segment(1) == 'Config_company' ?
@@ -145,25 +147,32 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="<?= site_url('Translations/russian_web') ?>"
-                       class="nav-link  <?= $this->uri->segment(1) == 'Translations' && $this->uri->segment(2) == 'russian_web' ? "active" : '' ?> ">
+                <!--<li class="nav-item">
+                    <a href="<?/*= site_url('Translations/russian_web') */?>"
+                       class="nav-link  <?/*= $this->uri->segment(1) == 'Translations' && $this->uri->segment(2) == 'russian_web' ? "active" : '' */?> ">
                         <i class="fas fa-cogs nav-icon text-info  "></i>
                         <p class="text-success_">
-                            <?= translate('Translations_russian_web') ?>
+                            <?/*= translate('Translations_russian_web') */?>
                         </p>
                     </a>
-                </li>
+                </li>-->
             </ul>
         </li>
 
         <li class="nav-item">
-            <a href="<?= site_url('Banners') ?>"
-               class="nav-link <?= $this->uri->segment(1) == 'Banners' ? "active" : '' ?> ">
-                <i class="nav-icon fas fa-image text-maroon"></i>
-                <p><?= translate('Banners') ?></p>
+            <a href="<?= site_url('Company_stats_c') ?>"
+               class="nav-link <?= $this->uri->segment(1) == 'Company_stats_c' ? "active" : '' ?> ">
+                <i class="nav-icon fas fa-chart-bar text-maroon"></i>
+                <p><?= translate('school_statistics') ?></p>
             </a>
         </li>
+        <!--<li class="nav-item">
+            <a href="<?/*= site_url('Banners') */?>"
+               class="nav-link <?/*= $this->uri->segment(1) == 'Banners' ? "active" : '' */?> ">
+                <i class="nav-icon fas fa-image text-maroon"></i>
+                <p><?/*= translate('Banners') */?></p>
+            </a>
+        </li>-->
         <li class="nav-item">
             <a href="<?= site_url('Photos_web_c') ?>"
                class="nav-link <?= $this->uri->segment(1) == 'Photos_web_c' ? "active" : '' ?> ">
@@ -178,13 +187,13 @@
                 <p><?= translate('Video_album') ?></p>
             </a>
         </li>
-        <li class="nav-item">
+      <!--  <li class="nav-item">
             <a href="<?= site_url('Jobs_c') ?>"
                class="nav-link <?= $this->uri->segment(1) == 'Jobs_c' ? "active" : '' ?> ">
                 <i class="nav-icon fas fa-list-ol text-maroon"></i>
                 <p><?= translate('Employment_Management') ?></p>
             </a>
-        </li>
+        </li> -->
         <li class="nav-item">
             <a href="<?=site_url('Client')?>"
                class="nav-link <?=$this->uri->segment(1) == 'Client' ?  "active" : ''?> ">
@@ -205,7 +214,7 @@
             <a href="<?= site_url('News') ?>"
                class="nav-link <?= $this->uri->segment(1) == 'News' ? "active" : '' ?> ">
                 <i class="nav-icon fas fa-list-ol text-success"></i>
-                <p><?= translate('News') ?> </p>
+                <p><?= translate('Blog') ?> </p>
             </a>
         </li>
         <li class="nav-item">
@@ -321,13 +330,13 @@
             </ul>
         </li>
 
-        <li class="nav-item">
-            <a href="<?= site_url('Register') ?>"
-               class="nav-link <?= $this->uri->segment(1) == 'Register' ? "active" : '' ?> ">
+        <!--<li class="nav-item">
+            <a href="<?/*= site_url('Register') */?>"
+               class="nav-link <?/*= $this->uri->segment(1) == 'Register' ? "active" : '' */?> ">
                 <i class="nav-icon fas fa-envelope text-success"></i>
-                <p><?= translate('Register_Messages') ?> </p>
+                <p><?/*= translate('Register_Messages') */?> </p>
             </a>
-        </li>
+        </li>-->
 
     </ul>
 </nav>

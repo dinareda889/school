@@ -67,6 +67,10 @@ class Fungsi{
         $this->ci->load->model('Msg_m');
         return  $this->ci->Msg_m->count_all_new_msgs($status)->num_rows();
     }
+    public function count_team(){
+        $this->ci->load->model('Team_m');
+        return  $this->ci->Team_m->count_all_team();
+    }
     public function count_new_price_list($status){
         $this->ci->load->model('Price_list_m');
         return  $this->ci->Price_list_m->count_all_new_price_lists($status)->num_rows();

@@ -257,25 +257,25 @@
                         </div>
                     </div>
                 </div>-->
-                <!--<div class="form-group">
-                    <label><?/*=translate('Company profile')*/?></label>
-                    <?php /*if(!empty($site->company_pdf)){ */?>
+                <div class="form-group">
+                    <label><?=translate('Study_Fees')?></label>
+                    <?php if(!empty($site->company_pdf)){ ?>
                         <a data-toggle="modal" data-target="#myModal-file" style="color: #007bff;">
-                            <i class="fa fa-eye" title=" <?/*=translate('view')*/?>"></i><?/*=translate('view')*/?> </a>
+                            <i class="fa fa-eye" title=" <?=translate('view')?>"></i><?=translate('view')?> </a>
                         <div class="modal fade" id="myModal-file" tabindex="-1"
                              role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog modal-xl" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
 
-                                        <h4 class="modal-title" id="myModalLabel"><?/*=translate('The File')*/?></h4>
+                                        <h4 class="modal-title" id="myModalLabel"><?=translate('The File')?></h4>
                                         <button type="button" class="close" data-dismiss="modal"
                                                 aria-label="Close"><span
                                                     aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <iframe  src="<?php /*if (!empty($site->company_pdf) && (file_exists('uploads/main/files/' . $site->company_pdf))) {
+                                        <iframe  src="<?php if (!empty($site->company_pdf) && (file_exists('uploads/main/files/' . $site->company_pdf))) {
 
                                             echo base_url() . 'uploads/main/files/' .$site->company_pdf;
 
@@ -283,23 +283,32 @@
 
                                             echo base_url() . 'uploads/defult_image.jpg';
 
-                                        } */?>" title="" height="500px" width="100%"></iframe>
+                                        } ?>" title="" height="500px" width="100%"></iframe>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger"
                                                 data-dismiss="modal">
-                                            <?/*=translate('close')*/?>
+                                            <?=translate('close')?>
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                    <?php /*} */?>
+                    <?php } ?>
                     <div class="input-group"> <div class="custom-file">
                             <input type="file" name="company_pdf" accept="application/pdf" class="form-control " /></div>
                     </div>
-                </div>-->
+                </div>
+                <div class="form-group">
+                    <label><?=translate('Registration_link')?></label>
+                    <?php if(isset($site->registration_link) && !empty($site->registration_link) ){ ?>
+                    <a target="_blank" title="<?=translate('Registration_link')?>" href="<?=$site->registration_link?>" >
+                        <i class="fa fa-eye"></i><?=translate('view')?></a>
+                    <?php } ?>
+                    <input type="text" name="registration_link" value="<?= $site->registration_link ?>"  class="form-control"/>
+
+                </div>
                 <div class="form-group map">
                     <style type="text/css" media="screen">
                         iframe {

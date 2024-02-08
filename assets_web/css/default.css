@@ -902,7 +902,7 @@
 	position: relative;
 }
 [data-overlay]::before {
-	background: #052648a3 none repeat scroll 0 0;
+	background: #052648e6      none repeat scroll 0 0;
 	content: "";
 	height: 100%;
 	left: 0;

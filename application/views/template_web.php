@@ -53,7 +53,7 @@
     <!--====== Favicon Icon ======-->
 
 
-    <link rel="shortcut icon" href="<?= base_url() . 'assets_web/images/' ?>favicon.ico" type="image/png">
+    <link rel="shortcut icon" href="<?= base_url() . 'assets_web/images/' ?>ffavicon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css?family=Almarai|Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>slick.css">
     <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>animate.css">
@@ -63,14 +63,16 @@
     <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>font-awesome.min.css">
     <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>default.css">
-    <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>responsive.css">
+    
     <link href="<?= base_url() . 'assets_web/css/' ?>aos.css" rel="stylesheet">
 
     <?php if (($set_lang == 'english') || ($set_lang == 'russian')) { ?>
         <!--------------- english style -------->
         <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>styleen.css">
+        <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>responsiveen.css">
     <?php } else { ?>
         <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>style.css">
+        <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>responsive.css">
     <?php } ?>
 
 </head>
@@ -103,7 +105,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 d-none d-lg-block">
+                <div class="col-lg-3 d-none d-lg-block">
                     <div class="header-contact text-lg-right text-center">
                         <ul>
 
@@ -114,7 +116,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 d-none d-lg-block">
+                <div class="col-lg-5 d-none d-lg-block">
                     <div class="header-contact text-lg-right text-center">
                         <ul>
 
@@ -166,7 +168,7 @@
                                        href="<?= base_url() ?>photos"><?= translate_web('photos') ?></a></li>
 
                                 <li class="nav-item">
-                                    <a href="<?= base_url() ?>videos"><?= translate_web('videos') ?></a></li>
+                                    <a href="<?= base_url() ?>videos"><?= translate_web('video') ?></a></li>
 
                                 <li class="nav-item ">
                                     <a class="<?= $this->uri->segment(1) == 'events' || $this->uri->segment(1) == 'one_event' ? "active" : '' ?>"
@@ -180,18 +182,24 @@
                                     <a class="<?= $this->uri->segment(1) == 'contact_us' ? "active" : '' ?>"
                                        href="<?= base_url() ?>contact_us"><?= translate_web('Contact_Us') ?></a>
                                 </li>
+                                <li class="nav-item ">
+                                    <a data-toggle="modal" data-target="#myModal-file"><?= translate_web('Study_Fees') ?></a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a target="_blank" href="<?= $this->company_data->registration_link?>"><?= translate_web('Registration_link') ?></a>
+                                </li>
 
                                 <li class="nav-item">
                                     <?php if ($set_lang == 'english') { ?>
                                         <a href="<?php echo base_url() . 'LanguageSwitcher/switchLang/arabic' ?>">
                                             <img src="<?= base_url() . 'assets_web/' ?>images/united-arab-emirates.png"
                                                  class="lang">
-                                            <?= translate_web('Arabic') ?></a>
+                                            <!--<?= translate_web('Arabic') ?>--> AR</a>
                                     <?php } elseif ($set_lang == 'arabic') { ?>
                                         <a href="<?php echo base_url() . 'LanguageSwitcher/switchLang/english' ?>">
                                             <img src="<?= base_url() . 'assets_web/' ?>images/united-states.png"
                                                  class="lang">
-                                            <?= translate_web('English') ?></a>
+                                            <!--<?= translate_web('English') ?>--> EN</a>
                                     <?php } ?>
 
                                     <!--                                    <a href="indexen.html"><img src="-->
@@ -243,17 +251,17 @@ unset($_SESSION['message']);
                     ?>
                     <div class="footer-about">
                         <div class="logo">
-                            <a href="<?= base_url() ?>"><img src="<?= $company_image ?>"
+                            <a href="<?= base_url() ?>"><img src="<?= base_url() . 'assets_web/images/' ?>logo-footer2.png"
                                                       alt="Logo"></a>
                         </div>
                         <p><?= $about_us_short ?></p>
 <?php if (isset($this->company_data) && (!empty($this->company_data))) { ?>
                         <ul class="mt-20">
-                            <li><a href="<?=$this->company_data->facebook?>"><i class="fa fa-facebook-f"></i></a></li>
-                            <li><a href="<?=$this->company_data->twitter?>"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="<?=$this->company_data->youtube?>"><i class="fa fa-youtube"></i></a></li>
-                            <li><a href="<?=$this->company_data->google_plus?>"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="<?=$this->company_data->snapchat?>"><i class="fa fa-snapchat"></i></a></li>
+                            <li><a href="<?=$this->company_data->facebook?>" target="_blank"><i class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="<?=$this->company_data->twitter?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="<?=$this->company_data->youtube?>" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="<?=$this->company_data->google_plus?>" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="<?=$this->company_data->snapchat?>" target="_blank"><i class="fa fa-snapchat"></i></a></li>
                         </ul>
                         <?php } ?>
                     </div> <!-- footer about -->
@@ -350,7 +358,8 @@ unset($_SESSION['message']);
                         <div class="footer-title pb-25">
                             <h6><?= translate_web('location_map') ?></h6>
                         </div>
-                        <div class="mapouter">
+                        <div class="mapouter" >
+                            
                             <?=$this->company_data->google_map?>
 <!--                            <iframe width="100%" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D8%B4%D8%A7%D8%B1%D9%82%D8%A9&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>-->
                         </div>
@@ -379,7 +388,7 @@ unset($_SESSION['message']);
             <div class="row">
                 <div class="col-md-12">
                     <div class="copyright text-center">
-                        <p class="text-align:center">©2023 جميع الحقوق محفوظة للمدرسة تصميم </p>
+                        <p class="text-align:center"><?=translate_web('Footer_text')?> </p>
                     </div>
                 </div>
 
@@ -461,6 +470,43 @@ unset($_SESSION['message']);
 
 
 </script>
+<?php if(!empty($this->company_data->company_pdf)){ ?>
+    <a data-toggle="modal" data-target="#myModal-file" style="color: #007bff;">
+        <i class="fa fa-eye" title=" <?=translate('view')?>"></i><?=translate('view')?> </a>
+    <div class="modal fade" id="myModal-file" tabindex="-1"
+         role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <h4 class="modal-title" id="myModalLabel"><?=translate('The File')?></h4>
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close"><span
+                                aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe  src="<?php if (!empty($this->company_data->company_pdf) && (file_exists('uploads/main/files/' . $this->company_data->company_pdf))) {
+
+                        echo base_url() . 'uploads/main/files/' .$this->company_data->company_pdf;
+
+                    } else {
+
+                        echo base_url() . 'uploads/defult_image.jpg';
+
+                    } ?>" title="" height="500px" width="100%"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger"
+                            data-dismiss="modal">
+                        <?=translate('close')?>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php } ?>
 </body>
 
 </html>

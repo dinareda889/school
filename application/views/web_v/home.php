@@ -67,29 +67,34 @@
             <div class="col-lg-5 offset-lg-1 order-first order-lg-last">
                 <div class="feature pt-50">
                     <div class="feature-title">
-                        <h3>مميزات المدرسة</h3>
+                        <!--<h3>مميزات المدرسة</h3>-->
+                        <h3><?= translate_web('features') ?></h3>
                     </div>
                     <ul>
                         <li>
                             <div class="singel-feature">
                                 <div class="icon">
-                                    <img src="<?= base_url() . 'assets_web/images/' ?>all-icon/f-1.png" alt="icon">
+                                    <img src="<?= base_url() . 'assets_web/images/' ?>f-1.png" alt="icon">
                                 </div>
                                 <div class="cont">
-                                    <h4>اختبارات دورية</h4>
-                                    <p>تمتاز المدرسة بعمل اختبارات بصفة دورية للطلبة لمعرفة مستواهم والعمل على زيادة
-                                        تفوقهم </p>
+                                    <!--<h4>اختبارات دورية</h4>-->
+                                    <h4><?= translate_web('features_title1') ?></h4>
+                                    <p><?= translate_web('features_sub1') ?></p>
+                                    <!--<p>تمتاز المدرسة بعمل اختبارات بصفة دورية للطلبة لمعرفة مستواهم والعمل على زيادة تفوقهم </p>-->
                                 </div>
                             </div> <!-- singel feature -->
                         </li>
                         <li>
                             <div class="singel-feature">
                                 <div class="icon">
-                                    <img src="<?= base_url() . 'assets_web/images/' ?>all-icon/f-3.png" alt="icon">
+                                    <img src="<?= base_url() . 'assets_web/images/' ?>f-3.png" alt="icon">
                                 </div>
                                 <div class="cont">
-                                    <h4>متابعة مستمرة</h4>
-                                    <p>تمتاز المدرسة بمتابعتها باستمار للطلبة وارسال التقارير لأولياء الأمور</p>
+                                    <!--<h4>متابعة مستمرة</h4>-->
+                                    <!--<p>تمتاز المدرسة بمتابعتها باستمار للطلبة وارسال التقارير لأولياء الأمور</p>-->
+                              
+                                <h4><?= translate_web('features_title2') ?></h4>
+                                    <p><?= translate_web('features_sub2') ?></p>
                                 </div>
                             </div> <!-- singel feature -->
                         </li>
@@ -97,11 +102,13 @@
                             <div class="singel-feature">
                                 <div class="icon">
 
-                                    <img src="<?= base_url() . 'assets_web/images/' ?>all-icon/f-2.png" alt="icon">
+                                    <img src="<?= base_url() . 'assets_web/images/' ?>f-2.png" alt="icon">
                                 </div>
                                 <div class="cont">
-                                    <h4>معلمين متميزين</h4>
-                                    <p>تضم المدرسة مجموعة متميزة من المعلمين فى مختلف التخصصات والمراحل التعليمية</p>
+                                    <!--<h4>معلمين متميزين</h4>-->
+                                    <!--<p>تضم المدرسة مجموعة متميزة من المعلمين فى مختلف التخصصات والمراحل التعليمية</p>-->
+                                 <h4><?= translate_web('features_title3') ?></h4>
+                                    <p><?= translate_web('features_sub3') ?></p>
                                 </div>
                             </div> <!-- singel feature -->
                         </li>
@@ -191,7 +198,7 @@
 
                     }
                     ?>
-                    <div class="col-lg col-sm-6">
+                    <div class="col-lg-3 col-sm-6">
                         <div class="singel-counter text-center mt-40">
                             <span><span class="counter"><?= $company_stat->number ?></span> </span>
                             <p><?= $title ?></p>
@@ -357,14 +364,18 @@
                                 <a href="<?= base_url() ?>one_event/<?= base64_encode($row->id) ?>">
                                     <h4><?php if ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'english')) {
                                             echo $row->name_en;
+                                            $address =$row->address_en;
                                         } elseif ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'russian')) {
                                             echo $row->name_ru;
+                                            $address =$row->address_ar;
+
                                         } else {
                                             echo $row->name_ar;
+                                            $address =$row->address_ar;
                                         }
                                         ?></h4></a>
                                 <span><i class="fa fa-clock-o"></i> <?= $row->from_time ?> - <?= $row->to_time ?></span>
-                                <span><i class="fa fa-map-marker"></i> <?= $row->location ?></span>
+                                <span><i class="fa fa-map-marker"></i> <?=$address?></span>
                                 <p class="fnt"><?php if ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'english')) {
                                         echo word_limiter(strip_tags($row->description_en), 30, '...');
                                     } elseif ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'russian')) {
@@ -450,8 +461,8 @@
                                     <!--                                <li><a> <i class="fa fa-calendar"></i> احمد حسن</a></li>-->
                                 </ul>
                                 <a href="<?= base_url() . 'one_blog/' . base64_encode($blog->id) ?>">
-                                    <h3><?= $blog->$name ?></h3></a>
-                                <p><?= word_limiter(strip_tags($blog->$description), 60, '...') ?></p>
+                                    <h3><?= $blog->$product_name ?></h3></a>
+                                <p><?= word_limiter(strip_tags($blog->$product_description), 60, '...') ?></p>
                             </div>
                         </div> <!-- singel news -->
                     </div>
@@ -477,8 +488,7 @@
             </div> <!-- row -->
             <div class="row patnar-slied">
                 <?php foreach ($suppliers as $supplier) {
-//                    print_r($supplier);
-//                    die();
+
                     if (isset($supplier->image) && (!empty($supplier->image))) {
                         $img_url = base_url() . 'uploads/client/' . $supplier->image;
                     } else {
@@ -486,13 +496,35 @@
                     }
                     ?>
                     <div class="col-lg-12">
+                        <a href="<?=$supplier->link?>" target="_blank">
                         <div class="singel-patnar text-center mt-40">
-                            <img src="<?= $img_url?>" alt="Logo">
+                           <img src="<?= $img_url?>" alt="Logo">
+                            
+                           <!-- <div style="background-image: url(<?= $img_url?>);" class="img-patnar"></div>-->
                         </div>
+                        </a>
                     </div>
                 <?php } ?>
 
+           <!-- </div>  -->
+            
+            
+            
+            <!-- <div class="row patnar-slied">-->
+                 
+              
+              
+                 
             </div> <!-- row -->
+            
+            
         </div> <!-- container -->
     </div>
 <?php } ?>
+
+ 
+  
+
+
+
+

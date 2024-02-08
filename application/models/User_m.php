@@ -113,7 +113,7 @@ class User_m extends CI_Model
         $params['image'] = $post['image'];
         $params['email'] = $post['email'];
         $params['x_y_z'] = ($post['password']);
-        $params['level'] = 1;
+        $params['level'] = 2;
 
         $this->db->insert('users', $params);
 

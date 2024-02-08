@@ -12,7 +12,7 @@
         <div class="row direction">
             <div class="col-lg-12">
                 <div class="page-banner-cont">
-                    <h2><?= translate_web('Project_details') ?>  </h2>
+                    <h2><?= translate_web('Event_details') ?>  </h2>
                 </div>
             </div>
         </div>
@@ -27,18 +27,22 @@ if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
         case 'arabic':
             $name = 'name_ar';
             $description = 'description_ar';
+            $address = 'address_ar';
             break;
         case 'english':
             $name = 'name_en';
             $description = 'description_en';
+            $address = 'address_en';
             break;
         case 'russian':
             $name = 'name_ru';
             $description = 'description_ru';
+            $address = '';
             break;
         default:
             $name = 'name_en';
             $description = 'description_en';
+            $address = 'address_en';
             break;
     }
 }
@@ -81,14 +85,14 @@ if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
                         <!-- events coundwon -->
                         <div class="events-address mt-30">
                             <ul>
-                                <!-- <li>
+                                 <li>
                                      <div class="singel-address">
                                          <div class="icon">
                                              <i class="fa fa-clock-o"></i>
                                          </div>
                                          <div class="cont">
-                                             <h6>وقت البداية</h6>
-                                             <span>12:00 Am</span>
+                                             <h6><?=translate_web('Start_time')?></h6>
+                                             <span><?=$one_project->from_time?></span>
                                          </div>
                                      </div>
                                  </li>
@@ -98,12 +102,12 @@ if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
                                              <i class="fa fa-bell-slash"></i>
                                          </div>
                                          <div class="cont">
-                                             <h6>وقت الأنتهاء</h6>
-                                             <span>05:00 Am</span>
+                                             <h6><?=translate_web('End_time')?></h6>
+                                             <span><?=$one_project->to_time?></span>
                                          </div>
                                      </div>
-                                 </li>-->
-                                <?php if (isset($one_project->location_map) && (!empty($one_project->location_map))) { ?>
+                                 </li>
+
                                     <li>
                                         <div class="singel-address">
                                             <div class="icon">
@@ -111,11 +115,11 @@ if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
                                             </div>
                                             <div class="cont">
                                                 <h6><?= translate_web('Location') ?></h6>
-                                                <span>مكان الايفنت</span>
+                                                <span><?=$one_project->$address?></span>
                                             </div>
                                         </div> <!-- singel address -->
                                     </li>
-                                <?php } ?>
+
                             </ul>
                             <?php if (isset($one_project->location_map) && (!empty($one_project->location_map))) { ?>
 
