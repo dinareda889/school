@@ -77,6 +77,7 @@ $route['videos/(:num)'] = "Web/videos/$1";
 
 $route['teachers'] = 'Web/teachers';
 $route['about_us'] = 'Web/about_us';
+$route['manger_word'] = 'Web/manger_word';
 $route['contact_us'] = 'Web/contact_us';
 $route['contact/(:any)'] = 'Web/contact/$1';
 $route['sitemap'] = 'Web/sitemap';
