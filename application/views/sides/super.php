@@ -87,6 +87,14 @@
                             <?= translate('About_Us') ?>
                         </p>
                     </a>
+                </li><li class="nav-item">
+                    <a href="<?= site_url('Manger_word') ?>"
+                       class="nav-link  <?= $this->uri->segment(1) == 'Manger_word' && $this->uri->segment(2) == '' ? "active" : '' ?> ">
+                        <i class="fas fa-cogs nav-icon text-info  "></i>
+                        <p class="text-success_">
+                            <?= translate('Manger_word') ?>
+                        </p>
+                    </a>
                 </li>
             </ul>
         </li>

@@ -63,7 +63,7 @@
     <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>font-awesome.min.css">
     <link rel="stylesheet" href="<?= base_url() . 'assets_web/css/' ?>default.css">
-    
+
     <link href="<?= base_url() . 'assets_web/css/' ?>aos.css" rel="stylesheet">
 
     <?php if (($set_lang == 'english') || ($set_lang == 'russian')) { ?>
@@ -158,6 +158,9 @@
                                 <li class="nav-item ">
                                     <a class="<?= $this->uri->segment(1) == 'about_us' ? "active" : '' ?>"
                                        href="<?= base_url() ?>about_us"><?= translate_web('About') ?></a></li>
+                                <li class="nav-item ">
+                                    <a class="<?= $this->uri->segment(1) == 'manger_word' ? "active" : '' ?>"
+                                       href="<?= base_url() ?>manger_word"><?= translate_web('manger_word') ?></a></li>
 
                                 <li class="nav-item ">
                                     <a class="<?= $this->uri->segment(1) == 'teachers' ? "active" : '' ?>"
@@ -183,10 +186,12 @@
                                        href="<?= base_url() ?>contact_us"><?= translate_web('Contact_Us') ?></a>
                                 </li>
                                 <li class="nav-item ">
-                                    <a data-toggle="modal" data-target="#myModal-file"><?= translate_web('Study_Fees') ?></a>
+                                    <a data-toggle="modal"
+                                       data-target="#myModal-file"><?= translate_web('Study_Fees') ?></a>
                                 </li>
                                 <li class="nav-item ">
-                                    <a target="_blank" href="<?= $this->company_data->registration_link?>"><?= translate_web('Registration_link') ?></a>
+                                    <a target="_blank"
+                                       href="<?= $this->company_data->registration_link ?>"><?= translate_web('Registration_link') ?></a>
                                 </li>
 
                                 <li class="nav-item">
@@ -251,18 +256,24 @@ unset($_SESSION['message']);
                     ?>
                     <div class="footer-about">
                         <div class="logo">
-                            <a href="<?= base_url() ?>"><img src="<?= base_url() . 'assets_web/images/' ?>logo-footer2.png"
-                                                      alt="Logo"></a>
+                            <a href="<?= base_url() ?>"><img
+                                        src="<?= base_url() . 'assets_web/images/' ?>logo-footer2.png"
+                                        alt="Logo"></a>
                         </div>
                         <p><?= $about_us_short ?></p>
-<?php if (isset($this->company_data) && (!empty($this->company_data))) { ?>
-                        <ul class="mt-20">
-                            <li><a href="<?=$this->company_data->facebook?>" target="_blank"><i class="fa fa-facebook-f"></i></a></li>
-                            <li><a href="<?=$this->company_data->twitter?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="<?=$this->company_data->youtube?>" target="_blank"><i class="fa fa-youtube"></i></a></li>
-                            <li><a href="<?=$this->company_data->google_plus?>" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="<?=$this->company_data->snapchat?>" target="_blank"><i class="fa fa-snapchat"></i></a></li>
-                        </ul>
+                        <?php if (isset($this->company_data) && (!empty($this->company_data))) { ?>
+                            <ul class="mt-20">
+                                <li><a href="<?= $this->company_data->facebook ?>" target="_blank"><i
+                                                class="fa fa-facebook-f"></i></a></li>
+                                <li><a href="<?= $this->company_data->twitter ?>" target="_blank"><i
+                                                class="fa fa-twitter"></i></a></li>
+                                <li><a href="<?= $this->company_data->youtube ?>" target="_blank"><i
+                                                class="fa fa-youtube"></i></a></li>
+                                <li><a href="<?= $this->company_data->google_plus ?>" target="_blank"><i
+                                                class="fa fa-google-plus"></i></a></li>
+                                <li><a href="<?= $this->company_data->snapchat ?>" target="_blank"><i
+                                                class="fa fa-snapchat"></i></a></li>
+                            </ul>
                         <?php } ?>
                     </div> <!-- footer about -->
                 </div>
@@ -358,10 +369,10 @@ unset($_SESSION['message']);
                         <div class="footer-title pb-25">
                             <h6><?= translate_web('location_map') ?></h6>
                         </div>
-                        <div class="mapouter" >
-                            
-                            <?=$this->company_data->google_map?>
-<!--                            <iframe width="100%" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D8%B4%D8%A7%D8%B1%D9%82%D8%A9&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>-->
+                        <div class="mapouter">
+
+                            <?= $this->company_data->google_map ?>
+                            <!--                            <iframe width="100%" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=%D8%A7%D9%84%D8%A7%D9%85%D8%A7%D8%B1%D8%A7%D8%AA%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D8%AF%D8%A9%20%D8%A7%D9%84%D8%B4%D8%A7%D8%B1%D9%82%D8%A9&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>-->
                         </div>
                     </div>
                 </div>
@@ -388,7 +399,7 @@ unset($_SESSION['message']);
             <div class="row">
                 <div class="col-md-12">
                     <div class="copyright text-center">
-                        <p class="text-align:center"><?=translate_web('Footer_text')?> </p>
+                        <p class="text-align:center"><?= translate_web('Footer_text') ?> </p>
                     </div>
                 </div>
 
@@ -470,25 +481,25 @@ unset($_SESSION['message']);
 
 
 </script>
-<?php if(!empty($this->company_data->company_pdf)){ ?>
+<?php if (!empty($this->company_data->company_pdf)) { ?>
     <a data-toggle="modal" data-target="#myModal-file" style="color: #007bff;">
-        <i class="fa fa-eye" title=" <?=translate('view')?>"></i><?=translate('view')?> </a>
+        <i class="fa fa-eye" title=" <?= translate('view') ?>"></i><?= translate('view') ?> </a>
     <div class="modal fade" id="myModal-file" tabindex="-1"
          role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h4 class="modal-title" id="myModalLabel"><?=translate('The File')?></h4>
+                    <h4 class="modal-title" id="myModalLabel"><?= translate('The File') ?></h4>
                     <button type="button" class="close" data-dismiss="modal"
                             aria-label="Close"><span
                                 aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <iframe  src="<?php if (!empty($this->company_data->company_pdf) && (file_exists('uploads/main/files/' . $this->company_data->company_pdf))) {
+                    <iframe src="<?php if (!empty($this->company_data->company_pdf) && (file_exists('uploads/main/files/' . $this->company_data->company_pdf))) {
 
-                        echo base_url() . 'uploads/main/files/' .$this->company_data->company_pdf;
+                        echo base_url() . 'uploads/main/files/' . $this->company_data->company_pdf;
 
                     } else {
 
@@ -499,7 +510,7 @@ unset($_SESSION['message']);
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger"
                             data-dismiss="modal">
-                        <?=translate('close')?>
+                        <?= translate('close') ?>
                     </button>
                 </div>
             </div>
