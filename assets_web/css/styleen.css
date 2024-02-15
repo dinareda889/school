@@ -542,19 +542,14 @@ p {
 .navigation .navbar .navbar-nav li .sub-menu{
     position: absolute;
     top: 110%;
-    /* left: 0; */
+    left: 0;
     background-color: #07294d;
-    min-width: 1000px;
+    width: 200px;
     opacity: 0;
     visibility: hidden;
-    /* -webkit-transition: all 0.4s linear; */
-    /* transition: all 0.2s linear; */
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s linear;
     z-index: 99;
-    /* width: max-content; */
-    /* right: 50%; */
-    top: 50%;
-    /* left: 50%; */
-    transform: translate(30%, 0%);
 }
 .navigation .navbar .navbar-nav li:hover .sub-menu{
     opacity: 1;
@@ -574,8 +569,21 @@ p {
 .navigation .navbar .navbar-nav li .sub-menu li a.active,
 .navigation .navbar .navbar-nav li .sub-menu li a:hover{
     padding-left: 20px;
-    color: #f37a29;
+    color: #ffc600;
 }
+
+.sub-nav-toggler{
+    display: none;
+}
+
+.navigation .navbar .navbar-nav li .sub-menu li:last-child a{
+    border-bottom: 0;
+}
+
+
+
+
+
 
 .sub-nav-toggler{
     display: none;
@@ -5199,12 +5207,14 @@ th, td {
 }
 
  .sub-menu li a {
-    padding: 10px 1px 10px 0px!important;
+   /* padding: 10px 1px 10px 0px!important;*/
 
 }
 
 
-
+ .chev {
+    font-size: 12px;
+}
 .program  .nav-item a.active {
     background-color: #fff!important;
     color: #2bb8b8!important;

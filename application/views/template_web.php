@@ -154,13 +154,25 @@
                                 <li class="nav-item ">
                                     <a class="<?= $this->uri->segment(1) == 'Web' || $this->uri->segment(1) == '' ? "active" : '' ?>"
                                        href="<?= base_url() ?>"><?= translate_web('Home') ?></a></li>
-
+  <li class="nav-item">
+                                        <a href="javascript:;"><?= translate_web('About') ?> <i class="fa fa-chevron-down chev" aria-hidden="true"></i> </a>
+                                        <ul class="sub-menu">
+                                            <li><a href="<?= base_url() ?>about_us"><?= translate_web('About') ?> </a></li>
+                                            <li><a href="<?= base_url() ?>manger_word"><?= translate_web('manger_word') ?></a></li>
+                                        </ul>
+                                    </li>
+                                    
+                                    
+                                    
+                                    
+                               <!--     
                                 <li class="nav-item ">
                                     <a class="<?= $this->uri->segment(1) == 'about_us' ? "active" : '' ?>"
                                        href="<?= base_url() ?>about_us"><?= translate_web('About') ?></a></li>
                                 <li class="nav-item ">
                                     <a class="<?= $this->uri->segment(1) == 'manger_word' ? "active" : '' ?>"
                                        href="<?= base_url() ?>manger_word"><?= translate_web('manger_word') ?></a></li>
+                                       -->
 
                                 <li class="nav-item ">
                                     <a class="<?= $this->uri->segment(1) == 'teachers' ? "active" : '' ?>"
@@ -189,10 +201,7 @@
                                     <a data-toggle="modal"
                                        data-target="#myModal-file"><?= translate_web('Study_Fees') ?></a>
                                 </li>
-                                <li class="nav-item ">
-                                    <a target="_blank"
-                                       href="<?= $this->company_data->registration_link ?>"><?= translate_web('Registration_link') ?></a>
-                                </li>
+                                
 
                                 <li class="nav-item">
                                     <?php if ($set_lang == 'english') { ?>
@@ -297,6 +306,14 @@ unset($_SESSION['message']);
                                             class="fa fa-angle-left"></i><?= translate_web('events') ?></a></li>
                             <li><a href="<?= base_url() ?>contact_us"><i
                                             class="fa fa-angle-left"></i><?= translate_web('Contact_Us') ?></a></li>
+                       
+                       
+                      <li>
+                                    <a target="_blank"
+                                       href="<?= $this->company_data->registration_link ?>"><i
+                                            class="fa fa-angle-left"></i><?= translate_web('Registration_link') ?></a>
+                                </li> 
+                       
                         </ul>
 
 
@@ -411,7 +428,43 @@ unset($_SESSION['message']);
 <!--====== BACK TO TP PART START ======-->
 
 <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+<?php if (!empty($this->company_data->company_pdf)) { ?>
+   <!-- <a data-toggle="modal" data-target="#myModal-file" style="color: #007bff;">
+        <i class="fa fa-eye" title=" <?= translate('view') ?>"></i><?= translate('view') ?> </a>-->
+    <div class="modal fade" id="myModal-file" tabindex="-1"
+         role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
 
+                    <h4 class="modal-title" id="myModalLabel"><?= translate('The File') ?></h4>
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close"><span
+                                aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe src="<?php if (!empty($this->company_data->company_pdf) && (file_exists('uploads/main/files/' . $this->company_data->company_pdf))) {
+
+                        echo base_url() . 'uploads/main/files/' . $this->company_data->company_pdf;
+
+                    } else {
+
+                        echo base_url() . 'uploads/defult_image.jpg';
+
+                    } ?>" title="" height="500px" width="100%"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger"
+                            data-dismiss="modal">
+                        <?= translate('close') ?>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php } ?>
 <!--====== jquery js ======-->
 <script src="<?= base_url() . 'assets_web/js/' ?>vendor/modernizr-3.6.0.min.js"></script>
 <script src="<?= base_url() . 'assets_web/js/' ?>vendor/jquery-1.12.4.min.js"></script>
@@ -481,43 +534,7 @@ unset($_SESSION['message']);
 
 
 </script>
-<?php if (!empty($this->company_data->company_pdf)) { ?>
-    <a data-toggle="modal" data-target="#myModal-file" style="color: #007bff;">
-        <i class="fa fa-eye" title=" <?= translate('view') ?>"></i><?= translate('view') ?> </a>
-    <div class="modal fade" id="myModal-file" tabindex="-1"
-         role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-xl" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
 
-                    <h4 class="modal-title" id="myModalLabel"><?= translate('The File') ?></h4>
-                    <button type="button" class="close" data-dismiss="modal"
-                            aria-label="Close"><span
-                                aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <iframe src="<?php if (!empty($this->company_data->company_pdf) && (file_exists('uploads/main/files/' . $this->company_data->company_pdf))) {
-
-                        echo base_url() . 'uploads/main/files/' . $this->company_data->company_pdf;
-
-                    } else {
-
-                        echo base_url() . 'uploads/defult_image.jpg';
-
-                    } ?>" title="" height="500px" width="100%"></iframe>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger"
-                            data-dismiss="modal">
-                        <?= translate('close') ?>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<?php } ?>
 </body>
 
 </html>
